@@ -9,6 +9,8 @@ build/
 output/
 AppDir/
 out/
+MyMusicPlayer/build/
+MyMusicPlayer/.cache/
 
 CMakeSettings.json
 

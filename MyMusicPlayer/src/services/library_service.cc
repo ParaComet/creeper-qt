@@ -96,8 +96,19 @@ auto generated_playlist_color(int index) -> QColor {
         % static_cast<int>(std::size(kGeneratedPlaylistColors))];
 }
 
+auto collect_manual_playlists(const std::vector<PlaylistInfo>& playlists) -> std::vector<PlaylistInfo> {
+    std::vector<PlaylistInfo> manual_playlists;
+    for (const auto& playlist : playlists) {
+        if (!playlist.system_generated) {
+            manual_playlists.push_back(playlist);
+        }
+    }
+    return manual_playlists;
+}
+
 auto build_generated_playlists(
-    const std::vector<SongInfo>& songs, const std::vector<AlbumInfo>& albums, int scan_root_count)
+    const std::vector<SongInfo>& songs, const std::vector<ArtistInfo>& artists,
+    const std::vector<AlbumInfo>& albums, int scan_root_count)
     -> std::vector<PlaylistInfo> {
     std::vector<PlaylistInfo> playlists;
     if (songs.empty()) {
@@ -113,6 +124,7 @@ auto build_generated_playlists(
         .sidebar_meta  = QStringLiteral("%1 songs · 资料库").arg(songs.size()),
         .sidebar_badge = QStringLiteral("LO"),
         .accent_color  = generated_playlist_color(0),
+        .system_generated = true,
         .songs         = songs,
     });
 
@@ -132,12 +144,15 @@ auto build_generated_playlists(
         .sidebar_meta  = QStringLiteral("%1 songs · 新导入").arg(recent_songs.size()),
         .sidebar_badge = QStringLiteral("RC"),
         .accent_color  = generated_playlist_color(1),
+        .system_generated = true,
         .songs         = std::move(recent_songs),
     });
 
     QHash<QString, std::vector<SongInfo>> songs_by_album;
+    QHash<QString, std::vector<SongInfo>> songs_by_artist;
     for (const auto& song : songs) {
         songs_by_album[song.album].push_back(song);
+        songs_by_artist[song.artist].push_back(song);
     }
 
     std::vector<AlbumInfo> sorted_albums = albums;
@@ -169,11 +184,50 @@ auto build_generated_playlists(
             .sidebar_meta  = QStringLiteral("%1 songs · 专辑").arg(album_songs.size()),
             .sidebar_badge = QStringLiteral("AL"),
             .accent_color  = generated_playlist_color(accent_index++),
+            .system_generated = true,
             .songs         = album_songs,
         });
 
         ++added_albums;
         if (added_albums >= 4) {
+            break;
+        }
+    }
+
+    std::vector<ArtistInfo> sorted_artists = artists;
+    std::sort(sorted_artists.begin(), sorted_artists.end(),
+        [](const auto& lhs, const auto& rhs) {
+            if (lhs.song_count != rhs.song_count) {
+                return lhs.song_count > rhs.song_count;
+            }
+            return lhs.name.localeAwareCompare(rhs.name) < 0;
+        });
+
+    int added_artists = 0;
+    for (const auto& artist : sorted_artists) {
+        const auto artist_songs = songs_by_artist.value(artist.name);
+        if (artist_songs.size() < 2) {
+            continue;
+        }
+        if (artist.name == QStringLiteral("Unknown Artist")) {
+            continue;
+        }
+
+        playlists.push_back(PlaylistInfo {
+            .id            = QStringLiteral("playlist-artist-%1").arg(make_slug(artist.name)),
+            .title         = artist.name,
+            .description   = QStringLiteral("按歌手自动聚合，适合连续听同一位创作者的作品。"),
+            .meta          = QStringLiteral("%1 songs · %2").arg(artist.song_count).arg(artist.subtitle),
+            .badge         = artist.cover_badge.isEmpty() ? make_cover_badge(artist.name) : artist.cover_badge,
+            .sidebar_meta  = QStringLiteral("%1 songs · 歌手").arg(artist.song_count),
+            .sidebar_badge = QStringLiteral("AR"),
+            .accent_color  = generated_playlist_color(accent_index++),
+            .system_generated = true,
+            .songs         = artist_songs,
+        });
+
+        ++added_artists;
+        if (added_artists >= 4) {
             break;
         }
     }
@@ -274,7 +328,8 @@ void LibraryService::initialize_database() {
         "badge TEXT,"
         "sidebar_meta TEXT,"
         "sidebar_badge TEXT,"
-        "accent_color TEXT)"));
+        "accent_color TEXT,"
+        "is_system_generated INTEGER DEFAULT 0)"));
     query.exec(QStringLiteral(
         "CREATE TABLE IF NOT EXISTS playlist_tracks ("
         "playlist_id TEXT,"
@@ -290,6 +345,8 @@ void LibraryService::initialize_database() {
         "CREATE TABLE IF NOT EXISTS scan_state ("
         "state_key TEXT PRIMARY KEY,"
         "state_value TEXT)"));
+    query.exec(QStringLiteral(
+        "ALTER TABLE playlists ADD COLUMN is_system_generated INTEGER DEFAULT 0"));
 }
 
 bool LibraryService::load_from_storage() {
@@ -359,7 +416,8 @@ bool LibraryService::load_from_storage() {
     QHash<QString, PlaylistInfo> playlist_map;
     QSqlQuery playlists_query { m_database };
     playlists_query.exec(QStringLiteral(
-        "SELECT id, title, description, meta, badge, sidebar_meta, sidebar_badge, accent_color "
+        "SELECT id, title, description, meta, badge, sidebar_meta, sidebar_badge, accent_color, "
+        "is_system_generated "
         "FROM playlists"));
     while (playlists_query.next()) {
         auto playlist = PlaylistInfo {
@@ -371,6 +429,7 @@ bool LibraryService::load_from_storage() {
             .sidebar_meta = playlists_query.value(5).toString(),
             .sidebar_badge = playlists_query.value(6).toString(),
             .accent_color = QColor(playlists_query.value(7).toString()),
+            .system_generated = playlists_query.value(8).toInt() != 0,
         };
         playlist_map.insert(playlist.id, playlist);
     }
@@ -487,8 +546,8 @@ void LibraryService::save_to_storage() {
     }
 
     query.prepare(QStringLiteral(
-        "INSERT INTO playlists (id, title, description, meta, badge, sidebar_meta, sidebar_badge, accent_color) "
-        "VALUES (?, ?, ?, ?, ?, ?, ?, ?)"));
+        "INSERT INTO playlists (id, title, description, meta, badge, sidebar_meta, sidebar_badge, accent_color, is_system_generated) "
+        "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"));
     for (const auto& playlist : m_playlists) {
         query.addBindValue(playlist.id);
         query.addBindValue(playlist.title);
@@ -498,6 +557,7 @@ void LibraryService::save_to_storage() {
         query.addBindValue(playlist.sidebar_meta);
         query.addBindValue(playlist.sidebar_badge);
         query.addBindValue(playlist.accent_color.name(QColor::HexArgb));
+        query.addBindValue(playlist.system_generated ? 1 : 0);
         query.exec();
     }
 
@@ -572,6 +632,7 @@ void LibraryService::load_demo_library() {
                 .sidebar_meta  = "12 songs · 常听",
                 .sidebar_badge = "MI",
                 .accent_color  = QColor(181, 233, 229),
+                .system_generated = true,
                 .songs         = {
                     { .id = "tell-your-world", .title = "Tell Your World", .artist = "livetune feat. Hatsune Miku", .album = "Re:Dial", .file_path = "/demo/tell-your-world.mp3", .duration_text = "4:18", .cover_badge = "TW", .track_number = 1 },
                     { .id = "melt", .title = "Melt", .artist = "ryo feat. Hatsune Miku", .album = "supercell", .file_path = "/demo/melt.mp3", .duration_text = "4:21", .cover_badge = "ME", .track_number = 2 },
@@ -588,6 +649,7 @@ void LibraryService::load_demo_library() {
                 .sidebar_meta  = "28 songs · 合成器",
                 .sidebar_badge = "ND",
                 .accent_color  = QColor(189, 226, 239),
+                .system_generated = true,
                 .songs         = {
                     { .id = "highlight", .title = "Highlight", .artist = "KIRA feat. Miku", .album = "Single", .file_path = "/demo/highlight.mp3", .duration_text = "3:41", .cover_badge = "HL", .track_number = 1 },
                     { .id = "digital-girl", .title = "Digital Girl", .artist = "KIRA", .album = "Single", .file_path = "/demo/digital-girl.mp3", .duration_text = "3:23", .cover_badge = "DG", .track_number = 2 },
@@ -604,6 +666,7 @@ void LibraryService::load_demo_library() {
                 .sidebar_meta  = "16 songs · 人声",
                 .sidebar_badge = "SV",
                 .accent_color  = QColor(214, 234, 226),
+                .system_generated = true,
                 .songs         = {
                     { .id = "from-y-to-y", .title = "From Y to Y", .artist = "JimmyThumb-P", .album = "Single", .file_path = "/demo/from-y-to-y.mp3", .duration_text = "5:36", .cover_badge = "YY", .track_number = 1 },
                     { .id = "glow", .title = "Glow", .artist = "keeno", .album = "Single", .file_path = "/demo/glow.mp3", .duration_text = "4:48", .cover_badge = "GL", .track_number = 2 },
@@ -620,6 +683,7 @@ void LibraryService::load_demo_library() {
                 .sidebar_meta  = "33 songs · 轻节奏",
                 .sidebar_badge = "SL",
                 .accent_color  = QColor(220, 226, 229),
+                .system_generated = true,
                 .songs         = {
                     { .id = "weekender-girl", .title = "Weekender Girl", .artist = "kz(livetune) x Hachioji-P", .album = "Single", .file_path = "/demo/weekender-girl.mp3", .duration_text = "3:33", .cover_badge = "WG", .track_number = 1 },
                     { .id = "decorator", .title = "DECORATOR", .artist = "livetune", .album = "Single", .file_path = "/demo/decorator.mp3", .duration_text = "3:30", .cover_badge = "DE", .track_number = 2 },
@@ -739,7 +803,11 @@ void LibraryService::scan_library() {
         });
     }
 
-    auto playlists = build_generated_playlists(songs, albums, m_scan_roots.size());
+    auto playlists = build_generated_playlists(songs, artists, albums, m_scan_roots.size());
+    auto manual_playlists = collect_manual_playlists(m_playlists);
+    playlists.insert(playlists.end(),
+        std::make_move_iterator(manual_playlists.begin()),
+        std::make_move_iterator(manual_playlists.end()));
     replace_library(std::move(songs), std::move(artists), std::move(albums), std::move(playlists));
     m_last_scan_at = now;
     m_last_scan_message = QStringLiteral("扫描完成，共发现 %1 首音频文件").arg(m_songs.size());

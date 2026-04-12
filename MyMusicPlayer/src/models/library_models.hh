@@ -30,6 +30,7 @@ struct PlaylistInfo {
     QString sidebar_meta;
     QString sidebar_badge;
     QColor accent_color;
+    bool system_generated = false;
     std::vector<SongInfo> songs;
 };
 

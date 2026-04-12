@@ -1,0 +1,8 @@
+CompilationDatabase: build
+CompileFlags:
+  Remove:
+    - -mno-direct-extern-access
+    - -fmodules-ts
+    - -fmodule-mapper=*
+    - -fdeps-format=*
+  Add: [-std=c++23]

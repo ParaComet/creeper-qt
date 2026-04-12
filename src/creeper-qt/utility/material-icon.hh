@@ -130,6 +130,17 @@ namespace material {
 
         // ComboBox
         constexpr auto kArrowDropDown = "arrow_drop_down";
+
+        // Media
+        constexpr auto kPlayArrow  = "play_arrow";
+        constexpr auto kPause      = "pause";
+        constexpr auto kSkipNext   = "skip_next";
+        constexpr auto kSkipPrev   = "skip_previous";
+        constexpr auto kVolumeUp   = "volume_up";
+        constexpr auto kVolumeDown = "volume_down";
+        constexpr auto kVolumeMute = "volume_mute";
+        constexpr auto kVolumeOff  = "volume_off";
+
     }
 }
 }

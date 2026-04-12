@@ -9,8 +9,15 @@ struct ThemeManager::Impl {
     std::unordered_map<Key, Handler> handlers;
     std::vector<Handler> begin_callbacks;
     std::vector<Handler> final_callbacks;
+    std::vector<QMetaObject::Connection> cleanup_connections;
     ThemePack theme_pack;
     ColorMode color_mode;
+
+    ~Impl() {
+        for (const auto& connection : cleanup_connections) {
+            QObject::disconnect(connection);
+        }
+    }
 
     auto apply_theme(const ThemeManager& manager) const {
         for (auto const& callback : begin_callbacks)
@@ -23,7 +30,8 @@ struct ThemeManager::Impl {
 
     auto append_handler(Key key, const Handler& handler) {
         handlers[key] = handler;
-        QObject::connect(key, &QObject::destroyed, [this, key] { remove_handler(key); });
+        cleanup_connections.push_back(
+            QObject::connect(key, &QObject::destroyed, [this, key] { remove_handler(key); }));
     }
 
     void remove_handler(Key key) { handlers.erase(key); }

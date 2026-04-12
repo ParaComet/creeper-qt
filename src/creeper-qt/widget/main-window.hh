@@ -77,3 +77,6 @@ struct ShowWindow final {
 };
 
 }
+
+template <typename ...args>
+concept main_window_show_trait = (std::derived_from<args, QMainWindow> && ...);

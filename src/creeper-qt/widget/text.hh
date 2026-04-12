@@ -21,7 +21,8 @@ public:
 
     auto set_color(QColor color) noexcept -> void {
         const auto name  = color.name(QColor::HexArgb);
-        const auto style = QString("QLabel { color : %1; }");
+        const auto style =
+            QString("QLabel { color: %1; background: transparent; border: none; }");
         setStyleSheet(style.arg(name));
     }
 };

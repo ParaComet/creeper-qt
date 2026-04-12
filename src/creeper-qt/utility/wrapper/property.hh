@@ -49,7 +49,7 @@ struct SetterProp : Token {
         requires std::assignable_from<T&, O>
     {
         value = std::forward<O>(other);
-        return *this;
+        return *this; ///允许链式赋值 a = b = c;
     }
 
     auto apply(auto& self) const noexcept -> void

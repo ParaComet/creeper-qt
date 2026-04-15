@@ -114,10 +114,24 @@ CMakeFiles/MyMusicPlayer.dir/src/mycomponet/PlaylistItem.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MyMusicPlayer.dir/src/mycomponet/PlaylistItem.cc.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/paracomet/Warehouse/creeper-qt/MyMusicPlayer/src/mycomponet/PlaylistItem.cc -o CMakeFiles/MyMusicPlayer.dir/src/mycomponet/PlaylistItem.cc.s
 
+CMakeFiles/MyMusicPlayer.dir/src/mycomponet/SongItem.cc.o: CMakeFiles/MyMusicPlayer.dir/flags.make
+CMakeFiles/MyMusicPlayer.dir/src/mycomponet/SongItem.cc.o: /home/paracomet/Warehouse/creeper-qt/MyMusicPlayer/src/mycomponet/SongItem.cc
+CMakeFiles/MyMusicPlayer.dir/src/mycomponet/SongItem.cc.o: CMakeFiles/MyMusicPlayer.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/paracomet/Warehouse/creeper-qt/build-mymusicplayer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/MyMusicPlayer.dir/src/mycomponet/SongItem.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MyMusicPlayer.dir/src/mycomponet/SongItem.cc.o -MF CMakeFiles/MyMusicPlayer.dir/src/mycomponet/SongItem.cc.o.d -o CMakeFiles/MyMusicPlayer.dir/src/mycomponet/SongItem.cc.o -c /home/paracomet/Warehouse/creeper-qt/MyMusicPlayer/src/mycomponet/SongItem.cc
+
+CMakeFiles/MyMusicPlayer.dir/src/mycomponet/SongItem.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/MyMusicPlayer.dir/src/mycomponet/SongItem.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/paracomet/Warehouse/creeper-qt/MyMusicPlayer/src/mycomponet/SongItem.cc > CMakeFiles/MyMusicPlayer.dir/src/mycomponet/SongItem.cc.i
+
+CMakeFiles/MyMusicPlayer.dir/src/mycomponet/SongItem.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MyMusicPlayer.dir/src/mycomponet/SongItem.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/paracomet/Warehouse/creeper-qt/MyMusicPlayer/src/mycomponet/SongItem.cc -o CMakeFiles/MyMusicPlayer.dir/src/mycomponet/SongItem.cc.s
+
 CMakeFiles/MyMusicPlayer.dir/src/services/library_service.cc.o: CMakeFiles/MyMusicPlayer.dir/flags.make
 CMakeFiles/MyMusicPlayer.dir/src/services/library_service.cc.o: /home/paracomet/Warehouse/creeper-qt/MyMusicPlayer/src/services/library_service.cc
 CMakeFiles/MyMusicPlayer.dir/src/services/library_service.cc.o: CMakeFiles/MyMusicPlayer.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/paracomet/Warehouse/creeper-qt/build-mymusicplayer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/MyMusicPlayer.dir/src/services/library_service.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/paracomet/Warehouse/creeper-qt/build-mymusicplayer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/MyMusicPlayer.dir/src/services/library_service.cc.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MyMusicPlayer.dir/src/services/library_service.cc.o -MF CMakeFiles/MyMusicPlayer.dir/src/services/library_service.cc.o.d -o CMakeFiles/MyMusicPlayer.dir/src/services/library_service.cc.o -c /home/paracomet/Warehouse/creeper-qt/MyMusicPlayer/src/services/library_service.cc
 
 CMakeFiles/MyMusicPlayer.dir/src/services/library_service.cc.i: cmake_force
@@ -131,7 +145,7 @@ CMakeFiles/MyMusicPlayer.dir/src/services/library_service.cc.s: cmake_force
 CMakeFiles/MyMusicPlayer.dir/src/widgets/all_music_page.cc.o: CMakeFiles/MyMusicPlayer.dir/flags.make
 CMakeFiles/MyMusicPlayer.dir/src/widgets/all_music_page.cc.o: /home/paracomet/Warehouse/creeper-qt/MyMusicPlayer/src/widgets/all_music_page.cc
 CMakeFiles/MyMusicPlayer.dir/src/widgets/all_music_page.cc.o: CMakeFiles/MyMusicPlayer.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/paracomet/Warehouse/creeper-qt/build-mymusicplayer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/MyMusicPlayer.dir/src/widgets/all_music_page.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/paracomet/Warehouse/creeper-qt/build-mymusicplayer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/MyMusicPlayer.dir/src/widgets/all_music_page.cc.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MyMusicPlayer.dir/src/widgets/all_music_page.cc.o -MF CMakeFiles/MyMusicPlayer.dir/src/widgets/all_music_page.cc.o.d -o CMakeFiles/MyMusicPlayer.dir/src/widgets/all_music_page.cc.o -c /home/paracomet/Warehouse/creeper-qt/MyMusicPlayer/src/widgets/all_music_page.cc
 
 CMakeFiles/MyMusicPlayer.dir/src/widgets/all_music_page.cc.i: cmake_force
@@ -145,7 +159,7 @@ CMakeFiles/MyMusicPlayer.dir/src/widgets/all_music_page.cc.s: cmake_force
 CMakeFiles/MyMusicPlayer.dir/src/widgets/home_window.cc.o: CMakeFiles/MyMusicPlayer.dir/flags.make
 CMakeFiles/MyMusicPlayer.dir/src/widgets/home_window.cc.o: /home/paracomet/Warehouse/creeper-qt/MyMusicPlayer/src/widgets/home_window.cc
 CMakeFiles/MyMusicPlayer.dir/src/widgets/home_window.cc.o: CMakeFiles/MyMusicPlayer.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/paracomet/Warehouse/creeper-qt/build-mymusicplayer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/MyMusicPlayer.dir/src/widgets/home_window.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/paracomet/Warehouse/creeper-qt/build-mymusicplayer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/MyMusicPlayer.dir/src/widgets/home_window.cc.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MyMusicPlayer.dir/src/widgets/home_window.cc.o -MF CMakeFiles/MyMusicPlayer.dir/src/widgets/home_window.cc.o.d -o CMakeFiles/MyMusicPlayer.dir/src/widgets/home_window.cc.o -c /home/paracomet/Warehouse/creeper-qt/MyMusicPlayer/src/widgets/home_window.cc
 
 CMakeFiles/MyMusicPlayer.dir/src/widgets/home_window.cc.i: cmake_force
@@ -159,7 +173,7 @@ CMakeFiles/MyMusicPlayer.dir/src/widgets/home_window.cc.s: cmake_force
 CMakeFiles/MyMusicPlayer.dir/src/widgets/playlist_page.cc.o: CMakeFiles/MyMusicPlayer.dir/flags.make
 CMakeFiles/MyMusicPlayer.dir/src/widgets/playlist_page.cc.o: /home/paracomet/Warehouse/creeper-qt/MyMusicPlayer/src/widgets/playlist_page.cc
 CMakeFiles/MyMusicPlayer.dir/src/widgets/playlist_page.cc.o: CMakeFiles/MyMusicPlayer.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/paracomet/Warehouse/creeper-qt/build-mymusicplayer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/MyMusicPlayer.dir/src/widgets/playlist_page.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/paracomet/Warehouse/creeper-qt/build-mymusicplayer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/MyMusicPlayer.dir/src/widgets/playlist_page.cc.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MyMusicPlayer.dir/src/widgets/playlist_page.cc.o -MF CMakeFiles/MyMusicPlayer.dir/src/widgets/playlist_page.cc.o.d -o CMakeFiles/MyMusicPlayer.dir/src/widgets/playlist_page.cc.o -c /home/paracomet/Warehouse/creeper-qt/MyMusicPlayer/src/widgets/playlist_page.cc
 
 CMakeFiles/MyMusicPlayer.dir/src/widgets/playlist_page.cc.i: cmake_force
@@ -173,7 +187,7 @@ CMakeFiles/MyMusicPlayer.dir/src/widgets/playlist_page.cc.s: cmake_force
 CMakeFiles/MyMusicPlayer.dir/src/widgets/player_bar.cc.o: CMakeFiles/MyMusicPlayer.dir/flags.make
 CMakeFiles/MyMusicPlayer.dir/src/widgets/player_bar.cc.o: /home/paracomet/Warehouse/creeper-qt/MyMusicPlayer/src/widgets/player_bar.cc
 CMakeFiles/MyMusicPlayer.dir/src/widgets/player_bar.cc.o: CMakeFiles/MyMusicPlayer.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/paracomet/Warehouse/creeper-qt/build-mymusicplayer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/MyMusicPlayer.dir/src/widgets/player_bar.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/paracomet/Warehouse/creeper-qt/build-mymusicplayer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/MyMusicPlayer.dir/src/widgets/player_bar.cc.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MyMusicPlayer.dir/src/widgets/player_bar.cc.o -MF CMakeFiles/MyMusicPlayer.dir/src/widgets/player_bar.cc.o.d -o CMakeFiles/MyMusicPlayer.dir/src/widgets/player_bar.cc.o -c /home/paracomet/Warehouse/creeper-qt/MyMusicPlayer/src/widgets/player_bar.cc
 
 CMakeFiles/MyMusicPlayer.dir/src/widgets/player_bar.cc.i: cmake_force
@@ -187,7 +201,7 @@ CMakeFiles/MyMusicPlayer.dir/src/widgets/player_bar.cc.s: cmake_force
 CMakeFiles/MyMusicPlayer.dir/src/widgets/scan_page.cc.o: CMakeFiles/MyMusicPlayer.dir/flags.make
 CMakeFiles/MyMusicPlayer.dir/src/widgets/scan_page.cc.o: /home/paracomet/Warehouse/creeper-qt/MyMusicPlayer/src/widgets/scan_page.cc
 CMakeFiles/MyMusicPlayer.dir/src/widgets/scan_page.cc.o: CMakeFiles/MyMusicPlayer.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/paracomet/Warehouse/creeper-qt/build-mymusicplayer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/MyMusicPlayer.dir/src/widgets/scan_page.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/paracomet/Warehouse/creeper-qt/build-mymusicplayer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/MyMusicPlayer.dir/src/widgets/scan_page.cc.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MyMusicPlayer.dir/src/widgets/scan_page.cc.o -MF CMakeFiles/MyMusicPlayer.dir/src/widgets/scan_page.cc.o.d -o CMakeFiles/MyMusicPlayer.dir/src/widgets/scan_page.cc.o -c /home/paracomet/Warehouse/creeper-qt/MyMusicPlayer/src/widgets/scan_page.cc
 
 CMakeFiles/MyMusicPlayer.dir/src/widgets/scan_page.cc.i: cmake_force
@@ -203,6 +217,7 @@ MyMusicPlayer_OBJECTS = \
 "CMakeFiles/MyMusicPlayer.dir/MyMusicPlayer_autogen/mocs_compilation.cpp.o" \
 "CMakeFiles/MyMusicPlayer.dir/src/main.cc.o" \
 "CMakeFiles/MyMusicPlayer.dir/src/mycomponet/PlaylistItem.cc.o" \
+"CMakeFiles/MyMusicPlayer.dir/src/mycomponet/SongItem.cc.o" \
 "CMakeFiles/MyMusicPlayer.dir/src/services/library_service.cc.o" \
 "CMakeFiles/MyMusicPlayer.dir/src/widgets/all_music_page.cc.o" \
 "CMakeFiles/MyMusicPlayer.dir/src/widgets/home_window.cc.o" \
@@ -216,6 +231,7 @@ MyMusicPlayer_EXTERNAL_OBJECTS =
 MyMusicPlayer: CMakeFiles/MyMusicPlayer.dir/MyMusicPlayer_autogen/mocs_compilation.cpp.o
 MyMusicPlayer: CMakeFiles/MyMusicPlayer.dir/src/main.cc.o
 MyMusicPlayer: CMakeFiles/MyMusicPlayer.dir/src/mycomponet/PlaylistItem.cc.o
+MyMusicPlayer: CMakeFiles/MyMusicPlayer.dir/src/mycomponet/SongItem.cc.o
 MyMusicPlayer: CMakeFiles/MyMusicPlayer.dir/src/services/library_service.cc.o
 MyMusicPlayer: CMakeFiles/MyMusicPlayer.dir/src/widgets/all_music_page.cc.o
 MyMusicPlayer: CMakeFiles/MyMusicPlayer.dir/src/widgets/home_window.cc.o
@@ -234,7 +250,7 @@ MyMusicPlayer: /usr/lib64/libOpenGL.so
 MyMusicPlayer: /usr/lib64/libQt6Network.so.6.10.3
 MyMusicPlayer: /usr/lib64/libQt6Core.so.6.10.3
 MyMusicPlayer: CMakeFiles/MyMusicPlayer.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/paracomet/Warehouse/creeper-qt/build-mymusicplayer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable MyMusicPlayer"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/paracomet/Warehouse/creeper-qt/build-mymusicplayer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable MyMusicPlayer"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/MyMusicPlayer.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

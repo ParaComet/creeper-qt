@@ -9,6 +9,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/MyMusicPlayer.dir/src/main.cc.o.d"
   "CMakeFiles/MyMusicPlayer.dir/src/mycomponet/PlaylistItem.cc.o"
   "CMakeFiles/MyMusicPlayer.dir/src/mycomponet/PlaylistItem.cc.o.d"
+  "CMakeFiles/MyMusicPlayer.dir/src/mycomponet/SongItem.cc.o"
+  "CMakeFiles/MyMusicPlayer.dir/src/mycomponet/SongItem.cc.o.d"
   "CMakeFiles/MyMusicPlayer.dir/src/services/library_service.cc.o"
   "CMakeFiles/MyMusicPlayer.dir/src/services/library_service.cc.o.d"
   "CMakeFiles/MyMusicPlayer.dir/src/widgets/all_music_page.cc.o"

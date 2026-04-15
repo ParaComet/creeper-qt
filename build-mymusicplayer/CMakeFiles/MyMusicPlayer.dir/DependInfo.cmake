@@ -11,6 +11,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/paracomet/Warehouse/creeper-qt/build-mymusicplayer/MyMusicPlayer_autogen/mocs_compilation.cpp" "CMakeFiles/MyMusicPlayer.dir/MyMusicPlayer_autogen/mocs_compilation.cpp.o" "gcc" "CMakeFiles/MyMusicPlayer.dir/MyMusicPlayer_autogen/mocs_compilation.cpp.o.d"
   "/home/paracomet/Warehouse/creeper-qt/MyMusicPlayer/src/main.cc" "CMakeFiles/MyMusicPlayer.dir/src/main.cc.o" "gcc" "CMakeFiles/MyMusicPlayer.dir/src/main.cc.o.d"
   "/home/paracomet/Warehouse/creeper-qt/MyMusicPlayer/src/mycomponet/PlaylistItem.cc" "CMakeFiles/MyMusicPlayer.dir/src/mycomponet/PlaylistItem.cc.o" "gcc" "CMakeFiles/MyMusicPlayer.dir/src/mycomponet/PlaylistItem.cc.o.d"
+  "/home/paracomet/Warehouse/creeper-qt/MyMusicPlayer/src/mycomponet/SongItem.cc" "CMakeFiles/MyMusicPlayer.dir/src/mycomponet/SongItem.cc.o" "gcc" "CMakeFiles/MyMusicPlayer.dir/src/mycomponet/SongItem.cc.o.d"
   "/home/paracomet/Warehouse/creeper-qt/MyMusicPlayer/src/services/library_service.cc" "CMakeFiles/MyMusicPlayer.dir/src/services/library_service.cc.o" "gcc" "CMakeFiles/MyMusicPlayer.dir/src/services/library_service.cc.o.d"
   "/home/paracomet/Warehouse/creeper-qt/MyMusicPlayer/src/widgets/all_music_page.cc" "CMakeFiles/MyMusicPlayer.dir/src/widgets/all_music_page.cc.o" "gcc" "CMakeFiles/MyMusicPlayer.dir/src/widgets/all_music_page.cc.o.d"
   "/home/paracomet/Warehouse/creeper-qt/MyMusicPlayer/src/widgets/home_window.cc" "CMakeFiles/MyMusicPlayer.dir/src/widgets/home_window.cc.o" "gcc" "CMakeFiles/MyMusicPlayer.dir/src/widgets/home_window.cc.o.d"

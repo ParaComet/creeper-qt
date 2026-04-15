@@ -8,6 +8,7 @@
 
 namespace mymusic::model {
 
+// 歌曲信息
 struct SongInfo {
     QString id;
     QString title;
@@ -21,6 +22,7 @@ struct SongInfo {
     bool liked       = false;
 };
 
+// 歌单信息
 struct PlaylistInfo {
     QString id;
     QString title;
@@ -42,6 +44,7 @@ struct ArtistInfo {
     QString cover_path;
     int song_count  = 0;
     int album_count = 0;
+    bool liked      = false;
 };
 
 struct AlbumInfo {
@@ -52,6 +55,7 @@ struct AlbumInfo {
     QString cover_badge;
     QString cover_path;
     int track_count = 0;
+    bool liked      = false;
 };
 
 struct ScanRootInfo {

@@ -19,9 +19,16 @@ public:
     const std::vector<mymusic::model::AlbumInfo>& albums() const noexcept;
     const std::vector<mymusic::model::PlaylistInfo>& playlists() const noexcept;
     const std::vector<mymusic::model::ScanRootInfo>& scan_roots() const noexcept;
+    std::vector<mymusic::model::SongInfo> songs_for_source(const QString& source_id) const;
     const QString& last_scan_message() const noexcept;
     const QDateTime& last_scan_at() const noexcept;
     bool is_scanning() const noexcept;
+    const mymusic::model::PlaylistInfo* find_playlist(const QString& playlist_id) const noexcept;
+    bool source_supports_entity_favorite(const QString& source_id) const noexcept;
+    bool source_entity_liked(const QString& source_id) const noexcept;
+    bool set_source_entity_liked(const QString& source_id, bool liked);
+    QString first_source_directory(const QString& source_id) const;
+    bool set_song_liked(const QString& song_id, bool liked);
 
     void replace_library(std::vector<mymusic::model::SongInfo> songs,
         std::vector<mymusic::model::ArtistInfo> artists,

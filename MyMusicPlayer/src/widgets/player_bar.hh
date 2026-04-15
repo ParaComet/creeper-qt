@@ -18,16 +18,19 @@ public:
     explicit PlayerBar(creeper::ThemeManager& manager, QWidget* parent = nullptr);
 
     void set_track_info(const QString& title, const QString& artist, const QString& album);
-    void set_cover();
+    void set_cover(const QString& label = QStringLiteral("封面"), const QString& cover_path = {});
     void set_progress(double progress);
     void set_volume(double volume);
     void set_playing(bool playing);
+    void set_favorite(bool favorite);
+    void set_order_icon(const QString& icon_name);
 
 signals:
     void control_signal(const QString& action);
     void play_pause_clicked();
     void next_clicked();
     void previous_clicked();
+    void order_clicked();
     void seek_requested(double progress);
     void volume_changed(double volume);
     void favorite_toggled(bool checked);

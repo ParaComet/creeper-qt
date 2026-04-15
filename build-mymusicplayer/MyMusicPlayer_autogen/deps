@@ -4,6 +4,8 @@ MyMusicPlayer_autogen/timestamp: \
 	/home/paracomet/Warehouse/creeper-qt/MyMusicPlayer/src/models/library_models.hh \
 	/home/paracomet/Warehouse/creeper-qt/MyMusicPlayer/src/mycomponet/PlaylistItem.cc \
 	/home/paracomet/Warehouse/creeper-qt/MyMusicPlayer/src/mycomponet/PlaylistItem.hh \
+	/home/paracomet/Warehouse/creeper-qt/MyMusicPlayer/src/mycomponet/SongItem.cc \
+	/home/paracomet/Warehouse/creeper-qt/MyMusicPlayer/src/mycomponet/SongItem.hh \
 	/home/paracomet/Warehouse/creeper-qt/MyMusicPlayer/src/services/library_service.cc \
 	/home/paracomet/Warehouse/creeper-qt/MyMusicPlayer/src/services/library_service.hh \
 	/home/paracomet/Warehouse/creeper-qt/MyMusicPlayer/src/widgets/all_music_page.cc \
@@ -20,6 +22,7 @@ MyMusicPlayer_autogen/timestamp: \
 	/home/paracomet/Warehouse/creeper-qt/build-mymusicplayer/CMakeFiles/3.31.11/CMakeSystem.cmake \
 	/home/paracomet/Warehouse/creeper-qt/build-mymusicplayer/MyMusicPlayer_autogen/moc_predefs.h \
 	/home/paracomet/Warehouse/creeper-qt/src/creeper-qt/layout/linear.hh \
+	/home/paracomet/Warehouse/creeper-qt/src/creeper-qt/layout/stacked.hh \
 	/home/paracomet/Warehouse/creeper-qt/src/creeper-qt/utility/qt_wrapper/enter-event.hh \
 	/home/paracomet/Warehouse/creeper-qt/src/creeper-qt/utility/qt_wrapper/margin-setter.hh \
 	/home/paracomet/Warehouse/creeper-qt/src/creeper-qt/utility/theme/color-scheme.hh \
@@ -556,6 +559,7 @@ MyMusicPlayer_autogen/timestamp: \
 	/usr/include/qt6/QtSql/qtsql-config.h \
 	/usr/include/qt6/QtSql/qtsqlexports.h \
 	/usr/include/qt6/QtSql/qtsqlglobal.h \
+	/usr/include/qt6/QtWidgets/QAbstractButton \
 	/usr/include/qt6/QtWidgets/QWidget \
 	/usr/include/qt6/QtWidgets/qabstractbutton.h \
 	/usr/include/qt6/QtWidgets/qboxlayout.h \
@@ -981,6 +985,10 @@ MyMusicPlayer_autogen/timestamp: \
 	/usr/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake \
 	/usr/share/cmake/Modules/CheckCXXCompilerFlag.cmake \
 	/usr/share/cmake/Modules/CheckCXXSourceCompiles.cmake \
+	/usr/share/cmake/Modules/CheckIPOSupported.cmake \
+	/usr/share/cmake/Modules/CheckIPOSupported/CMakeLists-CXX.txt.in \
+	/usr/share/cmake/Modules/CheckIPOSupported/foo.cpp \
+	/usr/share/cmake/Modules/CheckIPOSupported/main.cpp \
 	/usr/share/cmake/Modules/CheckIncludeFileCXX.cmake \
 	/usr/share/cmake/Modules/CheckLibraryExists.cmake \
 	/usr/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake \

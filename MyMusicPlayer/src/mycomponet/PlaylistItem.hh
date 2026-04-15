@@ -7,6 +7,7 @@
 #include "creeper-qt/utility/wrapper/widget.hh"
 
 #include <QAbstractButton>
+#include <QPixmap>
 #include <QString>
 
 namespace mycomponent::playlist_item::internal {
@@ -18,6 +19,8 @@ public:
     void set_title(const QString& title) noexcept;
     void set_meta(const QString& meta) noexcept;
     void set_badge(const QString& badge) noexcept;
+    void set_cover_path(const QString& cover_path) noexcept;
+    void set_marked(bool marked) noexcept;
 
     void set_color_scheme(const creeper::ColorScheme& scheme) noexcept;
     void load_theme_manager(creeper::ThemeManager& manager) noexcept;
@@ -36,8 +39,10 @@ private:
     QString m_title;
     QString m_meta;
     QString m_badge;
+    QPixmap m_cover;
     creeper::ColorScheme m_scheme {};
     bool m_hovered = false;
+    bool m_marked = false;
 };
 
 }
@@ -52,6 +57,10 @@ using Meta =
     creeper::DerivedProp<Token, QString, [](auto& self, const QString& value) { self.set_meta(value); }>;
 using Badge =
     creeper::DerivedProp<Token, QString, [](auto& self, const QString& value) { self.set_badge(value); }>;
+using CoverPath = creeper::DerivedProp<Token, QString,
+    [](auto& self, const QString& value) { self.set_cover_path(value); }>;
+using Marked =
+    creeper::SetterProp<Token, bool, [](auto& self, bool value) { self.set_marked(value); }>;
 using Selected =
     creeper::SetterProp<Token, bool, [](auto& self, bool value) { self.set_selected(value); }>;
 

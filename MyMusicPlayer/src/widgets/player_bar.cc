@@ -8,6 +8,8 @@
 #include "style.hh"
 #include "creeper-qt/utility/wrapper/common.hh"
 
+#include <QFileInfo>
+#include <QIcon>
 #include <QVBoxLayout>
 #include <qwidget.h>
 
@@ -41,7 +43,7 @@ PlayerBar::PlayerBar(ThemeManager& manager, QWidget* parent)
     setLayout(root_layout);
 
     apply_theme();
-    set_track_info("当前未播放", "等待播放", "点击封面可进入展开页");
+    set_track_info("当前未播放", "", "");
     set_progress(0.0);
     set_volume(0.6);
     set_cover();
@@ -77,8 +79,17 @@ auto PlayerBar::build_content() -> creeper::Widget* {
             lnpro::Item<Text> {
                 widget::pro::Bind { m_artist_text },
                 text::pro::ThemeManager { m_theme_manager },
-                text::pro::Text { "等待播放" },
+                text::pro::Text { },
                 text::pro::Color { m_theme_manager.color_scheme().on_surface_variant },
+                widget::pro::Apply { [](Text& self) {
+                    self.setStyleSheet("QLabel { background: transparent; border: none; }");
+                } },
+            },
+            lnpro::Item<Text> {
+                widget::pro::Bind { m_album_text },
+                text::pro::ThemeManager { m_theme_manager },
+                text::pro::Text { },
+                text::pro::Color { m_theme_manager.color_scheme().primary },
                 widget::pro::Apply { [](Text& self) {
                     self.setStyleSheet("QLabel { background: transparent; border: none; }");
                 } },
@@ -95,6 +106,7 @@ auto PlayerBar::build_content() -> creeper::Widget* {
             lnpro::Item<FilledButton> {
                 widget::pro::Bind { m_cover_button },
                 filled_button::pro::ThemeManager { m_theme_manager },
+                filled_button::pro::Radius { 16 },
                 button::pro::Text { "封面" },
                 filled_button::pro::FixedSize { 72, 72 },
                 button::pro::Clickable { [this] {
@@ -197,8 +209,11 @@ auto PlayerBar::build_content() -> creeper::Widget* {
             lnpro::Item<IconButton> {
                 widget::pro::Bind { m_order_button },
                 button_features,
-                ibpro::FontIcon { material::icon::kMenu },
-                ibpro::Clickable { [this] { emit control_signal("order"); } },
+                ibpro::FontIcon { QStringLiteral("reorder") },
+                ibpro::Clickable { [this] {
+                    emit order_clicked();
+                    emit control_signal("order");
+                } },
             },
             lnpro::Item<IconButton> {
                 widget::pro::Bind { m_favorite_button },
@@ -284,9 +299,17 @@ void PlayerBar::set_track_info(const QString& title, const QString& artist, cons
     }
 }
 
-void PlayerBar::set_cover() {
+void PlayerBar::set_cover(const QString& label, const QString& cover_path) {
     if (m_cover_button != nullptr) {
-        m_cover_button->setText("封面");
+        if (!cover_path.isEmpty() && QFileInfo::exists(cover_path)) {
+            m_cover_button->setText(QString {});
+            m_cover_button->setIcon(QIcon(cover_path));
+            m_cover_button->setIconSize(QSize { 72, 72 });
+        } else {
+            m_cover_button->setIcon(QIcon {});
+            m_cover_button->setText(label);
+        }
+        m_cover_button->update();
     }
 }
 
@@ -305,6 +328,18 @@ void PlayerBar::set_volume(double volume) {
 void PlayerBar::set_playing(bool playing) {
     m_playing = playing;
     update_play_pause_button();
+}
+
+void PlayerBar::set_favorite(bool favorite) {
+    if (m_favorite_button != nullptr) {
+        m_favorite_button->set_selected(favorite);
+    }
+}
+
+void PlayerBar::set_order_icon(const QString& icon_name) {
+    if (m_order_button != nullptr) {
+        m_order_button->set_icon(icon_name);
+    }
 }
 
 void PlayerBar::on_play_pause_clicked() {

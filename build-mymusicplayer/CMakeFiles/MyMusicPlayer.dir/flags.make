@@ -6,5 +6,5 @@ CXX_DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -D
 
 CXX_INCLUDES = -I/home/paracomet/Warehouse/creeper-qt/MyMusicPlayer/src -I/home/paracomet/Warehouse/creeper-qt/src -isystem /home/paracomet/Warehouse/creeper-qt/build-mymusicplayer/MyMusicPlayer_autogen/include -isystem /usr/include/qt6/QtWidgets -isystem /usr/include/qt6 -isystem /usr/include/qt6/QtCore -isystem /usr/lib64/qt6/mkspecs/linux-g++ -isystem /usr/include/qt6/QtGui -isystem /usr/include/qt6/QtMultimedia -isystem /usr/include/qt6/QtNetwork -isystem /usr/include/qt6/QtSql
 
-CXX_FLAGS = -std=gnu++23
+CXX_FLAGS = -O2 -g -DNDEBUG -std=gnu++23 -flto=auto -fno-fat-lto-objects
 

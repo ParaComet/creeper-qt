@@ -23,8 +23,14 @@ void IconButton::leaveEvent(QEvent* event) {
 
 void IconButton::paintEvent(QPaintEvent* event) { pimpl->paint_event(*this, *event); }
 
-void IconButton::set_icon(const QString& icon) noexcept { pimpl->font_icon = icon; }
-void IconButton::set_icon(const QIcon& icon) noexcept { QAbstractButton::setIcon(icon); }
+void IconButton::set_icon(const QString& icon) noexcept {
+    pimpl->font_icon = icon;
+    update();
+}
+void IconButton::set_icon(const QIcon& icon) noexcept {
+    QAbstractButton::setIcon(icon);
+    update();
+}
 
 void IconButton::set_types(Types types) noexcept { pimpl->set_types_type(*this, types); }
 void IconButton::set_shape(Shape shape) noexcept { pimpl->set_shape_type(*this, shape); }

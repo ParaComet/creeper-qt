@@ -548,7 +548,11 @@
 		"/usr/lib64/cmake/Qt6Sql/Qt6QSQLiteDriverPluginTargets.cmake",
 		"/usr/lib64/cmake/Qt6Sql/Qt6QSQLiteDriverPluginTargets-relwithdebinfo.cmake",
 		"/usr/lib64/cmake/Qt6Sql/Qt6QSQLiteDriverPluginAdditionalTargetInfo.cmake",
-		"/usr/lib64/cmake/Qt6Sql/Qt6SqlVersionlessAliasTargets.cmake"
+		"/usr/lib64/cmake/Qt6Sql/Qt6SqlVersionlessAliasTargets.cmake",
+		"/usr/share/cmake/Modules/CheckIPOSupported.cmake",
+		"/usr/share/cmake/Modules/CheckIPOSupported/CMakeLists-CXX.txt.in",
+		"/usr/share/cmake/Modules/CheckIPOSupported/foo.cpp",
+		"/usr/share/cmake/Modules/CheckIPOSupported/main.cpp"
 	],
 	"CMAKE_SOURCE_DIR" : "/home/paracomet/Warehouse/creeper-qt/MyMusicPlayer",
 	"CROSS_CONFIG" : false,
@@ -560,6 +564,12 @@
 			"/home/paracomet/Warehouse/creeper-qt/MyMusicPlayer/src/mycomponet/PlaylistItem.hh",
 			"Mu",
 			"6HP2KJMHJG/moc_PlaylistItem.cpp",
+			null
+		],
+		[
+			"/home/paracomet/Warehouse/creeper-qt/MyMusicPlayer/src/mycomponet/SongItem.hh",
+			"Mu",
+			"6HP2KJMHJG/moc_SongItem.cpp",
 			null
 		],
 		[
@@ -678,6 +688,11 @@
 		],
 		[
 			"/home/paracomet/Warehouse/creeper-qt/MyMusicPlayer/src/mycomponet/PlaylistItem.cc",
+			"Mu",
+			null
+		],
+		[
+			"/home/paracomet/Warehouse/creeper-qt/MyMusicPlayer/src/mycomponet/SongItem.cc",
 			"Mu",
 			null
 		],

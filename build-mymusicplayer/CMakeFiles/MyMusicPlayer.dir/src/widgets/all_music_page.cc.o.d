@@ -88,7 +88,8 @@ CMakeFiles/MyMusicPlayer.dir/src/widgets/all_music_page.cc.o: \
  /usr/include/bits/pthreadtypes-arch.h \
  /usr/include/bits/atomic_wide_counter.h /usr/include/bits/struct_mutex.h \
  /usr/include/bits/struct_rwlock.h /usr/include/alloca.h \
- /usr/include/bits/stdlib-float.h /usr/include/c++/15/bits/std_abs.h \
+ /usr/include/bits/stdlib-bsearch.h /usr/include/bits/stdlib-float.h \
+ /usr/include/c++/15/bits/std_abs.h \
  /usr/include/c++/15/bits/ranges_algo.h /usr/include/c++/15/optional \
  /usr/include/c++/15/exception /usr/include/c++/15/bits/exception_ptr.h \
  /usr/include/c++/15/bits/cxxabi_init_exception.h \
@@ -247,7 +248,8 @@ CMakeFiles/MyMusicPlayer.dir/src/widgets/all_music_page.cc.o: \
  /usr/include/bits/types/__fpos64_t.h \
  /usr/include/bits/types/struct_FILE.h \
  /usr/include/bits/types/cookie_io_functions_t.h \
- /usr/include/bits/stdio_lim.h /usr/include/c++/15/bits/charconv.h \
+ /usr/include/bits/stdio_lim.h /usr/include/bits/stdio.h \
+ /usr/include/c++/15/bits/charconv.h \
  /usr/include/c++/15/bits/basic_string.tcc \
  /usr/include/c++/15/bits/locale_classes.tcc \
  /usr/include/c++/15/system_error \
@@ -359,91 +361,143 @@ CMakeFiles/MyMusicPlayer.dir/src/widgets/all_music_page.cc.o: \
  /usr/include/qt6/QtSql/qtsqlexports.h \
  /usr/include/qt6/QtCore/qmetaobject.h /usr/include/qt6/QtCore/QObject \
  /usr/include/qt6/QtCore/qobject.h \
- /home/paracomet/Warehouse/creeper-qt/src/creeper-qt/layout/stacked.hh \
- /home/paracomet/Warehouse/creeper-qt/src/creeper-qt/utility/trait/widget.hh \
+ /home/paracomet/Warehouse/creeper-qt/MyMusicPlayer/src/mycomponet/PlaylistItem.hh \
+ /home/paracomet/Warehouse/creeper-qt/src/creeper-qt/utility/qt_wrapper/enter-event.hh \
+ /usr/include/qt6/QtCore/QtGlobal /usr/include/qt6/QtCore/qglobal.h \
+ /usr/include/qt6/QtGui/QEnterEvent /usr/include/qt6/QtGui/qevent.h \
+ /usr/include/qt6/QtCore/qcoreevent.h \
+ /usr/include/qt6/QtCore/qbasictimer.h \
+ /usr/include/qt6/QtCore/qabstracteventdispatcher.h \
+ /usr/include/qt6/QtCore/qeventloop.h \
+ /usr/include/qt6/QtCore/qdeadlinetimer.h \
+ /usr/include/qt6/QtCore/qiodevice.h /usr/include/qt6/QtCore/qspan.h \
+ /usr/include/c++/15/cassert /usr/include/qt6/QtCore/q20iterator.h \
+ /usr/include/qt6/QtCore/qurl.h /usr/include/qt6/QtGui/qeventpoint.h \
+ /usr/include/qt6/QtGui/qvector2d.h /usr/include/qt6/QtGui/qvectornd.h \
+ /usr/include/qt6/QtCore/qpoint.h \
+ /usr/include/qt6/QtCore/qcheckedint_impl.h \
+ /usr/include/qt6/QtCore/qrect.h /usr/include/qt6/QtCore/qmargins.h \
+ /usr/include/qt6/QtCore/qsize.h /usr/include/qt6/QtGui/qpointingdevice.h \
+ /usr/include/qt6/QtGui/qinputdevice.h /usr/include/qt6/QtGui/qscreen.h \
+ /usr/include/qt6/QtCore/QList /usr/include/qt6/QtCore/qlist.h \
+ /usr/include/qt6/QtCore/QObject /usr/include/qt6/QtCore/QRect \
+ /usr/include/qt6/QtCore/qrect.h /usr/include/qt6/QtCore/QSize \
+ /usr/include/qt6/QtCore/qsize.h /usr/include/qt6/QtCore/QSizeF \
+ /usr/include/qt6/QtGui/QTransform /usr/include/qt6/QtGui/qtransform.h \
+ /usr/include/qt6/QtGui/qpolygon.h /usr/include/qt6/QtGui/qregion.h \
+ /usr/include/qt6/QtGui/qwindowdefs.h /usr/include/qt6/QtCore/qline.h \
+ /usr/include/qt6/QtCore/qnativeinterface.h \
+ /usr/include/qt6/QtGui/qscreen_platform.h \
+ /usr/include/qt6/QtGui/qguiapplication.h \
+ /usr/include/qt6/QtCore/qcoreapplication.h \
+ /usr/include/qt6/QtCore/qcoreapplication_platform.h \
+ /usr/include/qt6/QtGui/qinputmethod.h \
+ /usr/include/qt6/QtGui/qguiapplication_platform.h \
+ /usr/include/qt6/QtGui/qkeysequence.h \
+ /home/paracomet/Warehouse/creeper-qt/src/creeper-qt/utility/theme/theme.hh \
  /usr/include/qt6/QtWidgets/qwidget.h \
  /usr/include/qt6/QtWidgets/qtwidgetsglobal.h \
  /usr/include/qt6/QtWidgets/qtwidgets-config.h \
  /usr/include/qt6/QtWidgets/qtwidgetsexports.h \
- /usr/include/qt6/QtGui/qwindowdefs.h /usr/include/qt6/QtCore/qmargins.h \
- /usr/include/qt6/QtCore/qcheckedint_impl.h \
- /usr/include/qt6/QtGui/qaction.h /usr/include/qt6/QtGui/qkeysequence.h \
- /usr/include/qt6/QtGui/qicon.h /usr/include/qt6/QtCore/qsize.h \
+ /usr/include/qt6/QtGui/qaction.h /usr/include/qt6/QtGui/qicon.h \
  /usr/include/qt6/QtGui/qpixmap.h /usr/include/qt6/QtGui/qpaintdevice.h \
- /usr/include/qt6/QtCore/qrect.h /usr/include/qt6/QtCore/qpoint.h \
  /usr/include/qt6/QtGui/qcolor.h /usr/include/qt6/QtGui/qimage.h \
  /usr/include/qt6/QtGui/qpixelformat.h \
- /usr/include/qt6/QtGui/qtransform.h /usr/include/qt6/QtGui/qpolygon.h \
- /usr/include/qt6/QtGui/qregion.h /usr/include/qt6/QtCore/qspan.h \
- /usr/include/c++/15/cassert /usr/include/qt6/QtCore/q20iterator.h \
- /usr/include/qt6/QtCore/qline.h /usr/include/qt6/QtGui/qpalette.h \
+ /usr/include/qt6/QtGui/qtransform.h /usr/include/qt6/QtGui/qpalette.h \
  /usr/include/qt6/QtGui/qbrush.h /usr/include/qt6/QtGui/qfont.h \
  /usr/include/qt6/QtCore/qendian.h /usr/include/qt6/QtGui/qfontmetrics.h \
  /usr/include/qt6/QtGui/qfontinfo.h \
  /usr/include/qt6/QtGui/qfontvariableaxis.h \
  /usr/include/qt6/QtWidgets/qsizepolicy.h \
  /usr/include/qt6/QtGui/qcursor.h /usr/include/qt6/QtGui/qbitmap.h \
+ /home/paracomet/Warehouse/creeper-qt/src/creeper-qt/utility/theme/color-scheme.hh \
+ /usr/include/qt6/QtGui/qcolor.h /usr/include/qt6/QtGui/qfont.h \
  /home/paracomet/Warehouse/creeper-qt/src/creeper-qt/utility/wrapper/common.hh \
  /home/paracomet/Warehouse/creeper-qt/src/creeper-qt/utility/wrapper/property.hh \
+ /home/paracomet/Warehouse/creeper-qt/src/creeper-qt/utility/wrapper/pimpl.hh \
+ /home/paracomet/Warehouse/creeper-qt/src/creeper-qt/utility/wrapper/widget.hh \
+ /usr/include/qt6/QtWidgets/qgraphicseffect.h \
+ /usr/include/qt6/QtGui/qscreen.h \
+ /usr/include/qt6/QtWidgets/QAbstractButton \
+ /usr/include/qt6/QtWidgets/qabstractbutton.h \
+ /usr/include/qt6/QtWidgets/qwidget.h /usr/include/qt6/QtGui/QPixmap \
+ /usr/include/qt6/QtGui/qpixmap.h \
+ /home/paracomet/Warehouse/creeper-qt/MyMusicPlayer/src/mycomponet/SongItem.hh \
+ /home/paracomet/Warehouse/creeper-qt/src/creeper-qt/layout/stacked.hh \
+ /home/paracomet/Warehouse/creeper-qt/src/creeper-qt/utility/trait/widget.hh \
  /home/paracomet/Warehouse/creeper-qt/src/creeper-qt/utility/wrapper/layout.hh \
  /home/paracomet/Warehouse/creeper-qt/src/creeper-qt/utility/qt_wrapper/margin-setter.hh \
- /usr/include/qt6/QtCore/QtGlobal /usr/include/qt6/QtCore/qglobal.h \
  /usr/include/qt6/QtWidgets/qstackedlayout.h \
  /usr/include/qt6/QtWidgets/qlayout.h \
  /usr/include/qt6/QtWidgets/qlayoutitem.h \
  /usr/include/qt6/QtWidgets/qboxlayout.h \
  /usr/include/qt6/QtWidgets/qgridlayout.h \
- /home/paracomet/Warehouse/creeper-qt/src/creeper-qt/utility/theme/theme.hh \
- /home/paracomet/Warehouse/creeper-qt/src/creeper-qt/utility/theme/color-scheme.hh \
- /usr/include/qt6/QtGui/qcolor.h /usr/include/qt6/QtGui/qfont.h \
- /home/paracomet/Warehouse/creeper-qt/src/creeper-qt/utility/wrapper/pimpl.hh \
  /home/paracomet/Warehouse/creeper-qt/src/creeper-qt/widget/widget.hh \
- /home/paracomet/Warehouse/creeper-qt/src/creeper-qt/utility/wrapper/widget.hh \
- /usr/include/qt6/QtWidgets/qgraphicseffect.h \
- /usr/include/qt6/QtGui/qscreen.h /usr/include/qt6/QtCore/QList \
- /usr/include/qt6/QtCore/qlist.h /usr/include/qt6/QtCore/QObject \
- /usr/include/qt6/QtCore/QRect /usr/include/qt6/QtCore/qrect.h \
- /usr/include/qt6/QtCore/QSize /usr/include/qt6/QtCore/qsize.h \
- /usr/include/qt6/QtCore/QSizeF /usr/include/qt6/QtGui/QTransform \
- /usr/include/qt6/QtGui/qtransform.h \
- /usr/include/qt6/QtCore/qnativeinterface.h \
- /usr/include/qt6/QtGui/qscreen_platform.h \
- /usr/include/qt6/QtGui/qguiapplication.h \
- /usr/include/qt6/QtCore/qcoreapplication.h \
- /usr/include/qt6/QtCore/qcoreevent.h \
- /usr/include/qt6/QtCore/qbasictimer.h \
- /usr/include/qt6/QtCore/qabstracteventdispatcher.h \
- /usr/include/qt6/QtCore/qeventloop.h \
- /usr/include/qt6/QtCore/qdeadlinetimer.h \
- /usr/include/qt6/QtCore/qcoreapplication_platform.h \
- /usr/include/qt6/QtGui/qinputmethod.h \
- /usr/include/qt6/QtGui/qguiapplication_platform.h \
  /home/paracomet/Warehouse/creeper-qt/MyMusicPlayer/src/widgets/style.hh \
  /home/paracomet/Warehouse/creeper-qt/src/creeper-qt/layout/linear.hh \
  /usr/include/qt6/QtWidgets/qboxlayout.h \
+ /home/paracomet/Warehouse/creeper-qt/src/creeper-qt/widget/image.hh \
+ /home/paracomet/Warehouse/creeper-qt/src/creeper-qt/utility/content-scale.hh \
+ /usr/include/qt6/QtGui/qpixmap.h \
+ /home/paracomet/Warehouse/creeper-qt/src/creeper-qt/utility/painter-resource.hh \
+ /usr/include/qt6/QtNetwork/qnetworkaccessmanager.h \
+ /usr/include/qt6/QtNetwork/qtnetworkglobal.h \
+ /usr/include/qt6/QtNetwork/qtnetwork-config.h \
+ /usr/include/qt6/QtNetwork/qtnetworkexports.h \
+ /usr/include/qt6/QtNetwork/qnetworkrequest.h \
+ /usr/include/qt6/QtNetwork/qhttpheaders.h \
+ /usr/include/qt6/QtCore/qdatetime.h \
+ /usr/include/qt6/QtCore/QSharedDataPointer \
+ /usr/include/qt6/QtCore/qshareddata.h /usr/include/qt6/QtCore/QString \
+ /usr/include/qt6/QtCore/QUrl /usr/include/qt6/QtCore/qurl.h \
+ /usr/include/qt6/QtCore/QVariant /usr/include/qt6/QtCore/qvariant.h \
+ /usr/include/qt6/QtCore/q26numeric.h \
+ /usr/include/qt6/QtNetwork/QSslConfiguration \
+ /usr/include/qt6/QtNetwork/qsslconfiguration.h \
+ /usr/include/qt6/QtNetwork/qsslsocket.h \
+ /usr/include/qt6/QtNetwork/qtcpsocket.h \
+ /usr/include/qt6/QtNetwork/qabstractsocket.h \
+ /usr/include/qt6/QtNetwork/qhostaddress.h \
+ /usr/include/qt6/QtNetwork/qsslerror.h \
+ /usr/include/qt6/QtNetwork/qsslcertificate.h \
+ /usr/include/qt6/QtCore/qcryptographichash.h \
+ /usr/include/qt6/QtNetwork/qssl.h /usr/include/qt6/QtCore/QFlags \
+ /usr/include/qt6/QtCore/qflags.h \
+ /usr/include/qt6/QtNetwork/QSslPreSharedKeyAuthenticator \
+ /usr/include/qt6/QtNetwork/qsslpresharedkeyauthenticator.h \
+ /usr/include/qt6/QtCore/QMetaType /usr/include/qt6/QtCore/qmetatype.h \
+ /usr/include/qt6/QtNetwork/qnetworkreply.h \
+ /usr/include/qt6/QtCore/QIODevice /usr/include/qt6/QtCore/qiodevice.h \
+ /usr/include/qt6/QtNetwork/QNetworkRequest \
+ /usr/include/qt6/QtNetwork/qnetworkrequest.h \
+ /usr/include/qt6/QtNetwork/QNetworkAccessManager \
+ /usr/include/qt6/QtNetwork/qnetworkaccessmanager.h \
  /home/paracomet/Warehouse/creeper-qt/src/creeper-qt/widget/text.hh \
  /usr/include/qt6/QtWidgets/qlabel.h /usr/include/qt6/QtWidgets/qframe.h \
- /usr/include/qt6/QtWidgets/qwidget.h /usr/include/qt6/QtGui/qpicture.h \
- /usr/include/qt6/QtCore/qiodevice.h \
- /usr/include/qt6/QtGui/qtextdocument.h /usr/include/qt6/QtCore/qurl.h \
+ /usr/include/qt6/QtGui/qpicture.h /usr/include/qt6/QtGui/qtextdocument.h \
+ /usr/include/qt6/QtCore/QFileInfo /usr/include/qt6/QtCore/qfileinfo.h \
+ /usr/include/qt6/QtCore/qfile.h /usr/include/qt6/QtCore/qfiledevice.h \
+ /usr/include/c++/15/filesystem /usr/include/c++/15/bits/fs_fwd.h \
+ /usr/include/c++/15/bits/fs_path.h /usr/include/c++/15/codecvt \
+ /usr/include/c++/15/bits/fs_dir.h /usr/include/c++/15/bits/fs_ops.h \
+ /usr/include/qt6/QtCore/qtimezone.h \
+ /usr/include/qt6/QtWidgets/QVBoxLayout \
+ /usr/include/qt6/QtWidgets/qboxlayout.h \
  /home/paracomet/Warehouse/creeper-qt/src/creeper-qt/layout/group.hh \
  /home/paracomet/Warehouse/creeper-qt/src/creeper-qt/layout/mutual-exclusion-group.hh \
+ /home/paracomet/Warehouse/creeper-qt/src/creeper-qt/layout/scroll.hh \
+ /usr/include/qt6/QtWidgets/qscrollarea.h \
+ /usr/include/qt6/QtWidgets/qabstractscrollarea.h \
+ /usr/include/qt6/QtWidgets/qscrollbar.h \
+ /usr/include/qt6/QtWidgets/qabstractslider.h \
  /home/paracomet/Warehouse/creeper-qt/src/creeper-qt/utility/material-icon.hh \
  /home/paracomet/Warehouse/creeper-qt/src/creeper-qt/widget/buttons/icon-button.hh \
  /usr/include/qt6/QtWidgets/qabstractbutton.h \
  /usr/include/qt6/QtGui/qpainter.h /usr/include/qt6/QtGui/qtextoption.h \
  /usr/include/qt6/QtGui/qpen.h \
- /home/paracomet/Warehouse/creeper-qt/src/creeper-qt/utility/qt_wrapper/enter-event.hh \
- /usr/include/qt6/QtGui/QEnterEvent /usr/include/qt6/QtGui/qevent.h \
- /usr/include/qt6/QtGui/qeventpoint.h /usr/include/qt6/QtGui/qvector2d.h \
- /usr/include/qt6/QtGui/qvectornd.h \
- /usr/include/qt6/QtGui/qpointingdevice.h \
- /usr/include/qt6/QtGui/qinputdevice.h /usr/include/qt6/QtGui/qscreen.h \
  /home/paracomet/Warehouse/creeper-qt/src/creeper-qt/widget/cards/filled-card.hh \
  /home/paracomet/Warehouse/creeper-qt/src/creeper-qt/widget/cards/basic-card.hh \
  /home/paracomet/Warehouse/creeper-qt/src/creeper-qt/widget/shape/rounded-rect.hh \
  /home/paracomet/Warehouse/creeper-qt/src/creeper-qt/utility/painter/helper.hh \
  /usr/include/qt6/QtGui/qpainterpath.h \
- /home/paracomet/Warehouse/creeper-qt/src/creeper-qt/widget/shape/shape.hh \
- /usr/include/qt6/QtWidgets/QVBoxLayout \
- /usr/include/qt6/QtWidgets/qboxlayout.h
+ /home/paracomet/Warehouse/creeper-qt/src/creeper-qt/widget/shape/shape.hh

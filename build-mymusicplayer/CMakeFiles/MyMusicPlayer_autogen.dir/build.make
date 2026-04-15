@@ -71,7 +71,7 @@ CMakeFiles/MyMusicPlayer_autogen: MyMusicPlayer_autogen/timestamp
 MyMusicPlayer_autogen/timestamp: /usr/lib64/qt6/libexec/moc
 MyMusicPlayer_autogen/timestamp: CMakeFiles/MyMusicPlayer_autogen.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/paracomet/Warehouse/creeper-qt/build-mymusicplayer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC for target MyMusicPlayer"
-	/usr/bin/cmake -E cmake_autogen /home/paracomet/Warehouse/creeper-qt/build-mymusicplayer/CMakeFiles/MyMusicPlayer_autogen.dir/AutogenInfo.json ""
+	/usr/bin/cmake -E cmake_autogen /home/paracomet/Warehouse/creeper-qt/build-mymusicplayer/CMakeFiles/MyMusicPlayer_autogen.dir/AutogenInfo.json RelWithDebInfo
 	/usr/bin/cmake -E touch /home/paracomet/Warehouse/creeper-qt/build-mymusicplayer/MyMusicPlayer_autogen/timestamp
 
 CMakeFiles/MyMusicPlayer_autogen.dir/codegen:

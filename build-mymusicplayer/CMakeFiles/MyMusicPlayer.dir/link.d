@@ -5,6 +5,7 @@ MyMusicPlayer: \
   CMakeFiles/MyMusicPlayer.dir/MyMusicPlayer_autogen/mocs_compilation.cpp.o \
   CMakeFiles/MyMusicPlayer.dir/src/main.cc.o \
   CMakeFiles/MyMusicPlayer.dir/src/mycomponet/PlaylistItem.cc.o \
+  CMakeFiles/MyMusicPlayer.dir/src/mycomponet/SongItem.cc.o \
   CMakeFiles/MyMusicPlayer.dir/src/services/library_service.cc.o \
   CMakeFiles/MyMusicPlayer.dir/src/widgets/all_music_page.cc.o \
   CMakeFiles/MyMusicPlayer.dir/src/widgets/home_window.cc.o \
@@ -137,6 +138,8 @@ CMakeFiles/MyMusicPlayer.dir/MyMusicPlayer_autogen/mocs_compilation.cpp.o:
 CMakeFiles/MyMusicPlayer.dir/src/main.cc.o:
 
 CMakeFiles/MyMusicPlayer.dir/src/mycomponet/PlaylistItem.cc.o:
+
+CMakeFiles/MyMusicPlayer.dir/src/mycomponet/SongItem.cc.o:
 
 CMakeFiles/MyMusicPlayer.dir/src/services/library_service.cc.o:
 

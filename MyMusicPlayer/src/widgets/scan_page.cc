@@ -88,7 +88,7 @@ auto ScanPage::build_header_card() -> QWidget* {
         fc::Layout<Row> {
             lnpro::ContentsMargin { { 22, 20, 22, 20 } },
             lnpro::Spacing { 18 },
-            lnpro::Item { sty::make_cover_label(m_theme_manager.color_scheme(), "SCAN", QSize { 88, 88 },
+            lnpro::Item { sty::make_cover_label(m_theme_manager, "SCAN", QSize { 88, 88 },
                 m_theme_manager.color_scheme().secondary_container) },
             lnpro::Item<Col> {
                 lnpro::Item<Col>::LayoutMethod { 1 },
@@ -96,16 +96,16 @@ auto ScanPage::build_header_card() -> QWidget* {
                 lnpro::Spacing { 6 },
                 lnpro::Item<Text> {
                     text::pro::ThemeManager { m_theme_manager },
-                    text::pro::Text { "扫描与资料库" },
+                    text::pro::Text { "扫描与曲库" },
                 },
                 lnpro::Item<Text> {
                     widget::pro::Bind { m_library_summary_text },
                     text::pro::ThemeManager { m_theme_manager },
-                    text::pro::Text { "正在读取资料库状态..." },
+                    text::pro::Text { "正在读取曲库状态..." },
                     sty::meta_text_color(m_theme_manager.color_scheme()),
                 },
                 lnpro::Item<Text> {
-                    text::pro::Text { "添加目录后会递归扫描本地音频文件，并把结果写回共享资料库。" },
+                    text::pro::Text { "添加目录后会递归扫描本地音频文件，并把结果写回曲库。" },
                     sty::meta_text_color(m_theme_manager.color_scheme()),
                 },
             },
@@ -233,7 +233,7 @@ void ScanPage::refresh_view() {
             fc::Layout<Row> {
                 lnpro::ContentsMargin { { 14, 14, 14, 14 } },
                 lnpro::Spacing { 12 },
-                lnpro::Item { sty::make_cover_label(m_theme_manager.color_scheme(), "DIR",
+                lnpro::Item { sty::make_cover_label(m_theme_manager, "DIR",
                     QSize { 52, 52 }, m_theme_manager.color_scheme().primary_container) },
                 lnpro::Item<Col> {
                     lnpro::Item<Col>::LayoutMethod { 1 },

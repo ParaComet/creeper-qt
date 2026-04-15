@@ -90,7 +90,8 @@ CMakeFiles/MyMusicPlayer.dir/src/widgets/player_bar.cc.o: \
  /usr/include/bits/pthreadtypes-arch.h \
  /usr/include/bits/atomic_wide_counter.h /usr/include/bits/struct_mutex.h \
  /usr/include/bits/struct_rwlock.h /usr/include/alloca.h \
- /usr/include/bits/stdlib-float.h /usr/include/c++/15/bits/std_abs.h \
+ /usr/include/bits/stdlib-bsearch.h /usr/include/bits/stdlib-float.h \
+ /usr/include/c++/15/bits/std_abs.h \
  /usr/include/c++/15/bits/ranges_algo.h /usr/include/c++/15/optional \
  /usr/include/c++/15/exception /usr/include/c++/15/bits/exception_ptr.h \
  /usr/include/c++/15/bits/cxxabi_init_exception.h \
@@ -248,7 +249,8 @@ CMakeFiles/MyMusicPlayer.dir/src/widgets/player_bar.cc.o: \
  /usr/include/bits/types/__fpos64_t.h \
  /usr/include/bits/types/struct_FILE.h \
  /usr/include/bits/types/cookie_io_functions_t.h \
- /usr/include/bits/stdio_lim.h /usr/include/c++/15/bits/charconv.h \
+ /usr/include/bits/stdio_lim.h /usr/include/bits/stdio.h \
+ /usr/include/c++/15/bits/charconv.h \
  /usr/include/c++/15/bits/basic_string.tcc \
  /usr/include/c++/15/bits/locale_classes.tcc \
  /usr/include/c++/15/system_error \
@@ -430,7 +432,50 @@ CMakeFiles/MyMusicPlayer.dir/src/widgets/player_bar.cc.o: \
  /usr/include/qt6/QtWidgets/QWidget /usr/include/qt6/QtWidgets/qwidget.h \
  /home/paracomet/Warehouse/creeper-qt/src/creeper-qt/utility/material-icon.hh \
  /home/paracomet/Warehouse/creeper-qt/MyMusicPlayer/src/widgets/style.hh \
+ /home/paracomet/Warehouse/creeper-qt/src/creeper-qt/widget/image.hh \
+ /home/paracomet/Warehouse/creeper-qt/src/creeper-qt/utility/content-scale.hh \
+ /usr/include/qt6/QtGui/qpixmap.h \
+ /home/paracomet/Warehouse/creeper-qt/src/creeper-qt/utility/painter-resource.hh \
+ /usr/include/qt6/QtNetwork/qnetworkaccessmanager.h \
+ /usr/include/qt6/QtNetwork/qtnetworkglobal.h \
+ /usr/include/qt6/QtNetwork/qtnetwork-config.h \
+ /usr/include/qt6/QtNetwork/qtnetworkexports.h \
+ /usr/include/qt6/QtNetwork/qnetworkrequest.h \
+ /usr/include/qt6/QtNetwork/qhttpheaders.h \
+ /usr/include/qt6/QtCore/qdatetime.h /usr/include/qt6/QtCore/qcalendar.h \
+ /usr/include/qt6/QtCore/qmetaobject.h \
+ /usr/include/qt6/QtCore/QSharedDataPointer \
+ /usr/include/qt6/QtCore/qshareddata.h /usr/include/qt6/QtCore/QString \
+ /usr/include/qt6/QtCore/qstring.h /usr/include/qt6/QtCore/QUrl \
+ /usr/include/qt6/QtCore/qurl.h /usr/include/qt6/QtCore/QVariant \
+ /usr/include/qt6/QtCore/qvariant.h /usr/include/qt6/QtCore/q26numeric.h \
+ /usr/include/qt6/QtNetwork/QSslConfiguration \
+ /usr/include/qt6/QtNetwork/qsslconfiguration.h \
+ /usr/include/qt6/QtNetwork/qsslsocket.h \
+ /usr/include/qt6/QtNetwork/qtcpsocket.h \
+ /usr/include/qt6/QtNetwork/qabstractsocket.h \
+ /usr/include/qt6/QtNetwork/qhostaddress.h \
+ /usr/include/qt6/QtNetwork/qsslerror.h \
+ /usr/include/qt6/QtNetwork/qsslcertificate.h \
+ /usr/include/qt6/QtCore/qcryptographichash.h \
+ /usr/include/qt6/QtNetwork/qssl.h /usr/include/qt6/QtCore/QFlags \
+ /usr/include/qt6/QtCore/qflags.h \
+ /usr/include/qt6/QtNetwork/QSslPreSharedKeyAuthenticator \
+ /usr/include/qt6/QtNetwork/qsslpresharedkeyauthenticator.h \
+ /usr/include/qt6/QtCore/QMetaType /usr/include/qt6/QtCore/qmetatype.h \
+ /usr/include/qt6/QtNetwork/qnetworkreply.h \
+ /usr/include/qt6/QtCore/QIODevice /usr/include/qt6/QtCore/qiodevice.h \
+ /usr/include/qt6/QtNetwork/QNetworkRequest \
+ /usr/include/qt6/QtNetwork/qnetworkrequest.h \
+ /usr/include/qt6/QtNetwork/QNetworkAccessManager \
+ /usr/include/qt6/QtNetwork/qnetworkaccessmanager.h \
  /usr/include/qt6/QtGui/QColor /usr/include/qt6/QtGui/qcolor.h \
- /usr/include/qt6/QtCore/QString /usr/include/qt6/QtCore/qstring.h \
+ /usr/include/qt6/QtCore/QFileInfo /usr/include/qt6/QtCore/qfileinfo.h \
+ /usr/include/qt6/QtCore/qfile.h /usr/include/qt6/QtCore/qfiledevice.h \
+ /usr/include/c++/15/filesystem /usr/include/c++/15/bits/fs_fwd.h \
+ /usr/include/c++/15/bits/fs_path.h /usr/include/c++/15/codecvt \
+ /usr/include/c++/15/bits/fs_dir.h /usr/include/c++/15/bits/fs_ops.h \
+ /usr/include/qt6/QtCore/qtimezone.h /usr/include/qt6/QtCore/QString \
  /usr/include/qt6/QtWidgets/QVBoxLayout \
- /usr/include/qt6/QtWidgets/qboxlayout.h
+ /usr/include/qt6/QtWidgets/qboxlayout.h /usr/include/qt6/QtGui/QIcon \
+ /usr/include/qt6/QtGui/qicon.h

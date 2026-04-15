@@ -6,5 +6,5 @@ CXX_DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_NO_DEBUG -DQT_WID
 
 CXX_INCLUDES = -I/home/paracomet/Warehouse/creeper-qt/src -isystem /home/paracomet/Warehouse/creeper-qt/build-mymusicplayer/_deps/creeper-qt-local/creeper-qt-widgets_autogen/include -isystem /usr/include/qt6/QtWidgets -isystem /usr/include/qt6 -isystem /usr/include/qt6/QtCore -isystem /usr/lib64/qt6/mkspecs/linux-g++ -isystem /usr/include/qt6/QtGui -isystem /usr/include/qt6/QtNetwork
 
-CXX_FLAGS = -std=gnu++23 -Os -O2
+CXX_FLAGS = -O2 -g -DNDEBUG -std=gnu++23 -Os -O2
 

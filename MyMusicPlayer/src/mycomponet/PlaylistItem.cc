@@ -1,6 +1,7 @@
 #include "PlaylistItem.hh"
 
 #include <QCursor>
+#include <QFileInfo>
 #include <QPainter>
 #include <QPainterPath>
 
@@ -40,6 +41,20 @@ void PlaylistItem::set_badge(const QString& badge) noexcept {
     update();
 }
 
+void PlaylistItem::set_cover_path(const QString& cover_path) noexcept {
+    if (!cover_path.isEmpty() && QFileInfo::exists(cover_path)) {
+        m_cover.load(cover_path);
+    } else {
+        m_cover = QPixmap {};
+    }
+    update();
+}
+
+void PlaylistItem::set_marked(bool marked) noexcept {
+    m_marked = marked;
+    update();
+}
+
 void PlaylistItem::set_color_scheme(const creeper::ColorScheme& scheme) noexcept {
     m_scheme = scheme;
     update();
@@ -62,7 +77,6 @@ void PlaylistItem::paintEvent(QPaintEvent* event) {
 
     const auto selected         = isChecked();
     const auto background       = selected ? m_scheme.primary_container : m_scheme.surface_container_lowest;
-    const auto border           = selected ? m_scheme.primary : m_scheme.outline_variant;
     const auto title_color      = selected ? m_scheme.on_primary_container : m_scheme.on_surface;
     const auto meta_color       = selected ? with_alpha(m_scheme.on_primary_container, 0.75)
                                            : m_scheme.on_surface_variant;
@@ -70,6 +84,8 @@ void PlaylistItem::paintEvent(QPaintEvent* event) {
     const auto badge_text_color = selected ? m_scheme.on_primary : m_scheme.on_secondary_container;
     const auto hover_fill       = selected ? with_alpha(m_scheme.primary, 0.10)
                                            : with_alpha(m_scheme.on_surface, 0.05);
+    const auto marker_fill      = selected ? m_scheme.primary : m_scheme.error_container;
+    const auto marker_text      = selected ? m_scheme.on_primary : m_scheme.on_error_container;
 
     auto painter = QPainter { this };
     painter.setRenderHint(QPainter::Antialiasing, true);
@@ -79,11 +95,12 @@ void PlaylistItem::paintEvent(QPaintEvent* event) {
 
     const auto outer_rect = rect().adjusted(1, 1, -1, -1);
     const auto badge_rect = QRectF { 12.0, 12.0, 52.0, 52.0 };
+    const auto marker_rect = QRectF { width() - 34.0, 10.0, 24.0, 24.0 };
     const auto text_left  = int(badge_rect.right()) + 14;
-    const auto title_rect = QRect { text_left, 16, width() - text_left - 12, 22 };
-    const auto meta_rect  = QRect { text_left, 42, width() - text_left - 12, 18 };
+    const auto title_rect = QRect { text_left, 16, width() - text_left - 52, 22 };
+    const auto meta_rect  = QRect { text_left, 42, width() - text_left - 16, 18 };
 
-    painter.setPen(QPen { border, 1.2 });
+    painter.setPen(Qt::NoPen);
     painter.setBrush(background);
     painter.drawRoundedRect(outer_rect, kOuterRadius, kOuterRadius);
 
@@ -97,11 +114,22 @@ void PlaylistItem::paintEvent(QPaintEvent* event) {
     painter.setBrush(badge_fill);
     painter.drawRoundedRect(badge_rect, kBadgeRadius, kBadgeRadius);
 
-    auto badge_font = font();
-    badge_font.setBold(true);
-    painter.setFont(badge_font);
-    painter.setPen(badge_text_color);
-    painter.drawText(badge_rect, Qt::AlignCenter, m_badge);
+    if (!m_cover.isNull()) {
+        auto path = QPainterPath {};
+        path.addRoundedRect(badge_rect, kBadgeRadius, kBadgeRadius);
+        painter.save();
+        painter.setClipPath(path);
+        painter.drawPixmap(badge_rect.toRect(),
+            m_cover.scaled(badge_rect.size().toSize(), Qt::KeepAspectRatioByExpanding,
+                Qt::SmoothTransformation));
+        painter.restore();
+    } else {
+        auto badge_font = font();
+        badge_font.setBold(true);
+        painter.setFont(badge_font);
+        painter.setPen(badge_text_color);
+        painter.drawText(badge_rect, Qt::AlignCenter, m_badge);
+    }
 
     auto title_font = font();
     title_font.setBold(true);
@@ -116,6 +144,19 @@ void PlaylistItem::paintEvent(QPaintEvent* event) {
     painter.setFont(meta_font);
     painter.setPen(meta_color);
     painter.drawText(meta_rect, Qt::AlignLeft | Qt::AlignVCenter, m_meta);
+
+    if (m_marked) {
+        painter.setPen(Qt::NoPen);
+        painter.setBrush(marker_fill);
+        painter.drawEllipse(marker_rect);
+
+        auto marker_font = font();
+        marker_font.setFamily(QStringLiteral("Material Icons Round"));
+        marker_font.setPointSizeF(12.0);
+        painter.setFont(marker_font);
+        painter.setPen(marker_text);
+        painter.drawText(marker_rect, Qt::AlignCenter, QStringLiteral("favorite"));
+    }
 }
 
 void PlaylistItem::enterEvent(creeper::qt::EnterEvent* event) {

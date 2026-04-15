@@ -89,7 +89,8 @@ CMakeFiles/MyMusicPlayer.dir/src/main.cc.o: \
  /usr/include/bits/pthreadtypes-arch.h \
  /usr/include/bits/atomic_wide_counter.h /usr/include/bits/struct_mutex.h \
  /usr/include/bits/struct_rwlock.h /usr/include/alloca.h \
- /usr/include/bits/stdlib-float.h /usr/include/c++/15/bits/std_abs.h \
+ /usr/include/bits/stdlib-bsearch.h /usr/include/bits/stdlib-float.h \
+ /usr/include/c++/15/bits/std_abs.h \
  /usr/include/c++/15/bits/ranges_algo.h /usr/include/c++/15/optional \
  /usr/include/c++/15/exception /usr/include/c++/15/bits/exception_ptr.h \
  /usr/include/c++/15/bits/cxxabi_init_exception.h \
@@ -248,7 +249,8 @@ CMakeFiles/MyMusicPlayer.dir/src/main.cc.o: \
  /usr/include/bits/types/__fpos64_t.h \
  /usr/include/bits/types/struct_FILE.h \
  /usr/include/bits/types/cookie_io_functions_t.h \
- /usr/include/bits/stdio_lim.h /usr/include/c++/15/bits/charconv.h \
+ /usr/include/bits/stdio_lim.h /usr/include/bits/stdio.h \
+ /usr/include/c++/15/bits/charconv.h \
  /usr/include/c++/15/bits/basic_string.tcc \
  /usr/include/c++/15/bits/locale_classes.tcc \
  /usr/include/c++/15/system_error \
@@ -654,6 +656,8 @@ CMakeFiles/MyMusicPlayer.dir/src/main.cc.o: \
  /home/paracomet/Warehouse/creeper-qt/src/creeper-qt/utility/material-icon.hh \
  /home/paracomet/Warehouse/creeper-qt/src/creeper-qt/layout/linear.hh \
  /usr/include/qt6/QtWidgets/qboxlayout.h \
+ /usr/include/qt6/QtGui/QMouseEvent /usr/include/qt6/QtCore/QEvent \
+ /usr/include/qt6/QtCore/qcoreevent.h \
  /usr/include/qt6/QtMultimedia/qmediaplayer.h \
  /usr/include/qt6/QtCore/QByteArray /usr/include/qt6/QtCore/qbytearray.h \
  /home/paracomet/Warehouse/creeper-qt/src/creeper-qt/core/application.hh \

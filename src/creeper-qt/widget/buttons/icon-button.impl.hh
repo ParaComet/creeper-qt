@@ -104,9 +104,13 @@ struct IconButton::Impl {
     auto enter_event(IconButton& self, const QEvent& event) {
         self.setCursor(Qt::PointingHandCursor);
         is_hovered = true;
+        self.update();
     }
 
-    auto leave_event(IconButton& self, const QEvent& event) { is_hovered = false; }
+    auto leave_event(IconButton& self, const QEvent& event) {
+        is_hovered = false;
+        self.update();
+    }
 
     auto paint_event(IconButton& self, const QPaintEvent& event) {
         // TODO: 做计算数据缓存优化，特别是 Resize 相关的计算

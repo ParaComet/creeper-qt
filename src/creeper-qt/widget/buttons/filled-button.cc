@@ -62,14 +62,26 @@ public:
         auto painter = QPainter { &self };
         util::PainterHelper { painter }
             .set_render_hint(QPainter::RenderHint::Antialiasing)
+            .set_render_hint(QPainter::RenderHint::SmoothPixmapTransform)
             .set_opacity(1.)
             .rounded_rectangle(background, border_color, border_width, self.rect(), radius, radius)
             .apply(water_ripple.renderer(button_path, water_color))
             .set_opacity(1.)
-            .rounded_rectangle(hover_color, Qt::transparent, 0, self.rect(), radius, radius)
-            .set_opacity(1.)
-            .simple_text(self.text(), self.font(), text_color, self.rect(), Qt::AlignCenter)
-            .done();
+            .rounded_rectangle(hover_color, Qt::transparent, 0, self.rect(), radius, radius);
+
+        const auto icon = self.icon();
+        if (!icon.isNull()) {
+            auto path = make_rounded_rectangle_path(self.rect(), radius);
+            painter.save();
+            painter.setClipPath(path);
+            painter.drawPixmap(self.rect(), icon.pixmap(self.iconSize()));
+            painter.restore();
+        } else {
+            util::PainterHelper { painter }
+                .set_opacity(1.)
+                .simple_text(self.text(), self.font(), text_color, self.rect(), Qt::AlignCenter)
+                .done();
+        }
     }
 
     void mouse_release_event(QAbstractButton& self, QMouseEvent* event) {

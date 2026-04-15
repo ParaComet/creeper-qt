@@ -87,7 +87,8 @@ CMakeFiles/MyMusicPlayer.dir/src/mycomponet/PlaylistItem.cc.o: \
  /usr/include/bits/pthreadtypes-arch.h \
  /usr/include/bits/atomic_wide_counter.h /usr/include/bits/struct_mutex.h \
  /usr/include/bits/struct_rwlock.h /usr/include/alloca.h \
- /usr/include/bits/stdlib-float.h /usr/include/c++/15/bits/std_abs.h \
+ /usr/include/bits/stdlib-bsearch.h /usr/include/bits/stdlib-float.h \
+ /usr/include/c++/15/bits/std_abs.h \
  /usr/include/c++/15/bits/ranges_algo.h /usr/include/c++/15/optional \
  /usr/include/c++/15/exception /usr/include/c++/15/bits/exception_ptr.h \
  /usr/include/c++/15/bits/cxxabi_init_exception.h \
@@ -247,7 +248,8 @@ CMakeFiles/MyMusicPlayer.dir/src/mycomponet/PlaylistItem.cc.o: \
  /usr/include/bits/types/__fpos64_t.h \
  /usr/include/bits/types/struct_FILE.h \
  /usr/include/bits/types/cookie_io_functions_t.h \
- /usr/include/bits/stdio_lim.h /usr/include/c++/15/bits/charconv.h \
+ /usr/include/bits/stdio_lim.h /usr/include/bits/stdio.h \
+ /usr/include/c++/15/bits/charconv.h \
  /usr/include/c++/15/bits/basic_string.tcc \
  /usr/include/c++/15/bits/locale_classes.tcc \
  /usr/include/c++/15/system_error \
@@ -405,9 +407,17 @@ CMakeFiles/MyMusicPlayer.dir/src/mycomponet/PlaylistItem.cc.o: \
  /usr/include/qt6/QtGui/qscreen.h \
  /usr/include/qt6/QtWidgets/QAbstractButton \
  /usr/include/qt6/QtWidgets/qabstractbutton.h \
- /usr/include/qt6/QtWidgets/qwidget.h /usr/include/qt6/QtCore/QString \
+ /usr/include/qt6/QtWidgets/qwidget.h /usr/include/qt6/QtGui/QPixmap \
+ /usr/include/qt6/QtGui/qpixmap.h /usr/include/qt6/QtCore/QString \
  /usr/include/qt6/QtCore/qstring.h /usr/include/qt6/QtGui/QCursor \
- /usr/include/qt6/QtGui/qcursor.h /usr/include/qt6/QtGui/QPainter \
- /usr/include/qt6/QtGui/qpainter.h /usr/include/qt6/QtGui/qtextoption.h \
- /usr/include/qt6/QtGui/qpen.h /usr/include/qt6/QtGui/QPainterPath \
+ /usr/include/qt6/QtGui/qcursor.h /usr/include/qt6/QtCore/QFileInfo \
+ /usr/include/qt6/QtCore/qfileinfo.h /usr/include/qt6/QtCore/qfile.h \
+ /usr/include/qt6/QtCore/qfiledevice.h /usr/include/c++/15/filesystem \
+ /usr/include/c++/15/bits/fs_fwd.h /usr/include/c++/15/bits/fs_path.h \
+ /usr/include/c++/15/codecvt /usr/include/c++/15/bits/fs_dir.h \
+ /usr/include/c++/15/bits/fs_ops.h /usr/include/qt6/QtCore/qdatetime.h \
+ /usr/include/qt6/QtCore/qcalendar.h /usr/include/qt6/QtCore/qtimezone.h \
+ /usr/include/qt6/QtGui/QPainter /usr/include/qt6/QtGui/qpainter.h \
+ /usr/include/qt6/QtGui/qtextoption.h /usr/include/qt6/QtGui/qpen.h \
+ /usr/include/qt6/QtGui/QPainterPath \
  /usr/include/qt6/QtGui/qpainterpath.h

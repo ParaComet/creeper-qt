@@ -88,7 +88,8 @@ CMakeFiles/MyMusicPlayer.dir/src/services/library_service.cc.o: \
  /usr/include/bits/pthreadtypes-arch.h \
  /usr/include/bits/atomic_wide_counter.h /usr/include/bits/struct_mutex.h \
  /usr/include/bits/struct_rwlock.h /usr/include/alloca.h \
- /usr/include/bits/stdlib-float.h /usr/include/c++/15/bits/std_abs.h \
+ /usr/include/bits/stdlib-bsearch.h /usr/include/bits/stdlib-float.h \
+ /usr/include/c++/15/bits/std_abs.h \
  /usr/include/c++/15/bits/ranges_algo.h /usr/include/c++/15/optional \
  /usr/include/c++/15/exception /usr/include/c++/15/bits/exception_ptr.h \
  /usr/include/c++/15/bits/cxxabi_init_exception.h \
@@ -247,7 +248,8 @@ CMakeFiles/MyMusicPlayer.dir/src/services/library_service.cc.o: \
  /usr/include/bits/types/__fpos64_t.h \
  /usr/include/bits/types/struct_FILE.h \
  /usr/include/bits/types/cookie_io_functions_t.h \
- /usr/include/bits/stdio_lim.h /usr/include/c++/15/bits/charconv.h \
+ /usr/include/bits/stdio_lim.h /usr/include/bits/stdio.h \
+ /usr/include/c++/15/bits/charconv.h \
  /usr/include/c++/15/bits/basic_string.tcc \
  /usr/include/c++/15/bits/locale_classes.tcc \
  /usr/include/c++/15/system_error \
@@ -366,25 +368,47 @@ CMakeFiles/MyMusicPlayer.dir/src/services/library_service.cc.o: \
  /usr/include/qt6/QtCore/qdeadlinetimer.h \
  /usr/include/qt6/QtCore/qnativeinterface.h \
  /usr/include/qt6/QtCore/qcoreapplication_platform.h \
- /usr/include/qt6/QtCore/qcoreapplication.h /usr/include/qt6/QtCore/QDir \
+ /usr/include/qt6/QtCore/qcoreapplication.h \
+ /usr/include/qt6/QtCore/QCryptographicHash \
+ /usr/include/qt6/QtCore/qcryptographichash.h \
+ /usr/include/qt6/QtCore/qspan.h /usr/include/c++/15/cassert \
+ /usr/include/qt6/QtCore/q20iterator.h /usr/include/qt6/QtCore/QDir \
  /usr/include/qt6/QtCore/qdir.h /usr/include/qt6/QtCore/qdirlisting.h \
  /usr/include/qt6/QtCore/qfiledevice.h \
- /usr/include/qt6/QtCore/qiodevice.h /usr/include/qt6/QtCore/qspan.h \
- /usr/include/c++/15/cassert /usr/include/qt6/QtCore/q20iterator.h \
- /usr/include/qt6/QtCore/qdatetime.h /usr/include/qt6/QtCore/qfile.h \
- /usr/include/c++/15/filesystem /usr/include/c++/15/bits/fs_fwd.h \
- /usr/include/c++/15/bits/fs_path.h /usr/include/c++/15/codecvt \
- /usr/include/c++/15/bits/fs_dir.h /usr/include/c++/15/bits/fs_ops.h \
- /usr/include/qt6/QtCore/qfileinfo.h /usr/include/qt6/QtCore/qtimezone.h \
- /usr/include/qt6/QtCore/QDirIterator \
+ /usr/include/qt6/QtCore/qiodevice.h /usr/include/qt6/QtCore/qdatetime.h \
+ /usr/include/qt6/QtCore/qfile.h /usr/include/c++/15/filesystem \
+ /usr/include/c++/15/bits/fs_fwd.h /usr/include/c++/15/bits/fs_path.h \
+ /usr/include/c++/15/codecvt /usr/include/c++/15/bits/fs_dir.h \
+ /usr/include/c++/15/bits/fs_ops.h /usr/include/qt6/QtCore/qfileinfo.h \
+ /usr/include/qt6/QtCore/qtimezone.h /usr/include/qt6/QtCore/QDirIterator \
  /usr/include/qt6/QtCore/qdiriterator.h /usr/include/qt6/QtCore/qdir.h \
+ /usr/include/qt6/QtCore/QEventLoop /usr/include/qt6/QtCore/qeventloop.h \
  /usr/include/qt6/QtCore/QFileInfo /usr/include/qt6/QtCore/qfileinfo.h \
  /usr/include/qt6/QtCore/QHash /usr/include/qt6/QtCore/qhash.h \
+ /usr/include/qt6/QtGui/QImage /usr/include/qt6/QtGui/qimage.h \
+ /usr/include/qt6/QtGui/qcolor.h /usr/include/qt6/QtGui/qpaintdevice.h \
+ /usr/include/qt6/QtGui/qwindowdefs.h /usr/include/qt6/QtCore/qrect.h \
+ /usr/include/qt6/QtCore/qcheckedint_impl.h \
+ /usr/include/qt6/QtCore/qmargins.h /usr/include/qt6/QtCore/qsize.h \
+ /usr/include/qt6/QtCore/qpoint.h /usr/include/qt6/QtGui/qpixelformat.h \
+ /usr/include/qt6/QtGui/qtransform.h /usr/include/qt6/QtGui/qpolygon.h \
+ /usr/include/qt6/QtGui/qregion.h /usr/include/qt6/QtCore/qline.h \
+ /usr/include/qt6/QtMultimedia/QMediaMetaData \
+ /usr/include/qt6/QtMultimedia/qmediametadata.h \
+ /usr/include/qt6/QtMultimedia/qtmultimediaglobal.h \
+ /usr/include/qt6/QtMultimedia/qtmultimedia-config.h \
+ /usr/include/qt6/QtMultimedia/qtmultimediaexports.h \
+ /usr/include/qt6/QtMultimedia/QMediaPlayer \
+ /usr/include/qt6/QtMultimedia/qmediaplayer.h \
+ /usr/include/qt6/QtCore/qurl.h /usr/include/qt6/QtMultimedia/qtaudio.h \
+ /usr/include/qt6/QtMultimedia/qaudio.h /usr/include/qt6/QtGui/QPixmap \
+ /usr/include/qt6/QtGui/qpixmap.h /usr/include/qt6/QtGui/qimage.h \
  /usr/include/qt6/QtCore/QSet /usr/include/qt6/QtCore/qset.h \
  /usr/include/qt6/QtSql/QSqlError /usr/include/qt6/QtSql/qsqlerror.h \
  /usr/include/qt6/QtSql/QSqlQuery /usr/include/qt6/QtSql/qsqlquery.h \
  /usr/include/qt6/QtSql/qsqldatabase.h \
  /usr/include/qt6/QtCore/QStandardPaths \
- /usr/include/qt6/QtCore/qstandardpaths.h /usr/include/qt6/QtCore/QUuid \
+ /usr/include/qt6/QtCore/qstandardpaths.h /usr/include/qt6/QtCore/QTimer \
+ /usr/include/qt6/QtCore/qtimer.h /usr/include/qt6/QtCore/QUuid \
  /usr/include/qt6/QtCore/quuid.h /usr/include/qt6/QtCore/qendian.h \
  /usr/include/qt6/QtCore/QVariant /usr/include/qt6/QtCore/qvariant.h

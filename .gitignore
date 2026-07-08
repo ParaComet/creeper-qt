@@ -6,13 +6,12 @@
 
 cmake-build-*/
 build/
+build-mymusicplayer/
 output/
 AppDir/
 out/
-MyMusicPlayer/build/
+MyMusicPlayer/build-mymusicplayer-release/
 MyMusicPlayer/.cache/
-
-build-mymusicplayer/
 CMakeSettings.json
 
 *.tar.gz

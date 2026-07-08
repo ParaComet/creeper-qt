@@ -19,9 +19,12 @@
 #include "creeper-qt/layout/mutual-exclusion-group.hh"
 #include "mytheme.hh"
 #include "widgets/player_bar.hh"
+#include <QAudioDevice>
 #include <QFileInfo>
 #include <QAbstractButton>
+#include <QDebug>
 #include <QDesktopServices>
+#include <QPainter>
 #include <QRandomGenerator>
 #include <QUrl>
 #include <QWindow>
@@ -53,6 +56,54 @@ auto is_interactive_widget(QWidget* widget) -> bool {
     return false;
 }
 
+auto playback_state_name(QMediaPlayer::PlaybackState state) -> QString {
+    switch (state) {
+    case QMediaPlayer::StoppedState:
+        return QStringLiteral("Stopped");
+    case QMediaPlayer::PlayingState:
+        return QStringLiteral("Playing");
+    case QMediaPlayer::PausedState:
+        return QStringLiteral("Paused");
+    }
+    return QStringLiteral("Unknown");
+}
+
+auto media_status_name(QMediaPlayer::MediaStatus status) -> QString {
+    switch (status) {
+    case QMediaPlayer::NoMedia:
+        return QStringLiteral("NoMedia");
+    case QMediaPlayer::LoadingMedia:
+        return QStringLiteral("LoadingMedia");
+    case QMediaPlayer::LoadedMedia:
+        return QStringLiteral("LoadedMedia");
+    case QMediaPlayer::StalledMedia:
+        return QStringLiteral("StalledMedia");
+    case QMediaPlayer::BufferingMedia:
+        return QStringLiteral("BufferingMedia");
+    case QMediaPlayer::BufferedMedia:
+        return QStringLiteral("BufferedMedia");
+    case QMediaPlayer::EndOfMedia:
+        return QStringLiteral("EndOfMedia");
+    case QMediaPlayer::InvalidMedia:
+        return QStringLiteral("InvalidMedia");
+    }
+    return QStringLiteral("Unknown");
+}
+
+void apply_background_palette(QWidget& widget, const creeper::ColorScheme& scheme) {
+    widget.setAttribute(Qt::WA_TranslucentBackground, false);
+    widget.setAttribute(Qt::WA_NoSystemBackground, false);
+    widget.setAttribute(Qt::WA_StyledBackground, false);
+    widget.setAutoFillBackground(true);
+
+    auto palette = widget.palette();
+    palette.setColor(QPalette::Window, scheme.background);
+    palette.setColor(QPalette::Base, scheme.background);
+    palette.setColor(QPalette::WindowText, scheme.on_background);
+    palette.setColor(QPalette::Text, scheme.on_background);
+    widget.setPalette(palette);
+}
+
 }
 
 
@@ -64,6 +115,7 @@ TopWindow::TopWindow()
     , m_library(this)
     , m_player(new QMediaPlayer(this))
     , m_audio_output(new QAudioOutput(this))
+    , m_media_devices(new QMediaDevices(this))
     , m_pages(new NavHost {
           nav_host::pro::CurrentIndex { 0 },
       }) {
@@ -76,10 +128,7 @@ TopWindow::TopWindow()
         self.setWindowTitle("MyMusicPlayer");
         self.resize(1280, 800);
         self.setObjectName("top_window");
-        self.setStyleSheet(
-            QString("#top_window { background: %1; color: %2; }")
-                .arg(sty::rgba_css(scheme.background))
-                .arg(sty::rgba_css(scheme.on_background)));
+        apply_background_palette(self, scheme);
     } });
 
     apply(mwpro::Central<creeper::Widget> { build_central_widget() });
@@ -341,7 +390,12 @@ auto TopWindow::build_player_bar() -> creeper::Widget* {
 }
 
 auto TopWindow::build_central_widget() -> creeper::Widget* {
+    const auto scheme = m_theme_manager.color_scheme();
     return new creeper::Widget {
+        widget::pro::Apply { [scheme](QWidget& self) {
+            self.setObjectName("top_window_content");
+            apply_background_palette(self, scheme);
+        } },
         widget::pro::Layout<Col> {
             lnpro::Margin { 0 },
             lnpro::Spacing { 0 },
@@ -375,6 +429,20 @@ void TopWindow::switch_page(int index) {
 void TopWindow::setup_player() {
     m_player->setAudioOutput(m_audio_output);
     m_audio_output->setVolume(0.6);
+    m_audio_output->setMuted(false);
+    refresh_audio_output_device();
+
+    QObject::connect(m_media_devices, &QMediaDevices::audioOutputsChanged, this,
+        [this] { refresh_audio_output_device(); });
+    QObject::connect(m_audio_output, &QAudioOutput::deviceChanged, this, [this] {
+        const auto device = m_audio_output->device();
+        qInfo() << "Audio output device changed:"
+                << (device.isNull() ? QStringLiteral("<none>") : device.description());
+    });
+    QObject::connect(m_audio_output, &QAudioOutput::volumeChanged, this,
+        [](float volume) { qInfo() << "Audio output volume changed:" << volume; });
+    QObject::connect(m_audio_output, &QAudioOutput::mutedChanged, this,
+        [](bool muted) { qInfo() << "Audio output muted changed:" << muted; });
 
     QObject::connect(m_player, &QMediaPlayer::positionChanged, this, [this](qint64 position) {
         if (m_player_bar == nullptr) {
@@ -393,12 +461,14 @@ void TopWindow::setup_player() {
     });
     QObject::connect(m_player, &QMediaPlayer::playbackStateChanged, this,
         [this](QMediaPlayer::PlaybackState state) {
+            qInfo() << "Playback state changed:" << playback_state_name(state);
             if (m_player_bar != nullptr) {
                 m_player_bar->set_playing(state == QMediaPlayer::PlayingState);
             }
         });
     QObject::connect(m_player, &QMediaPlayer::mediaStatusChanged, this,
         [this](QMediaPlayer::MediaStatus status) {
+            qInfo() << "Media status changed:" << media_status_name(status);
             if (status != QMediaPlayer::EndOfMedia) {
                 return;
             }
@@ -408,6 +478,50 @@ void TopWindow::setup_player() {
             }
             play_next_track();
         });
+    QObject::connect(m_player, &QMediaPlayer::hasAudioChanged, this,
+        [](bool has_audio) { qInfo() << "Current media has audio:" << has_audio; });
+    QObject::connect(m_player, &QMediaPlayer::sourceChanged, this,
+        [](const QUrl& source) { qInfo() << "Media source changed:" << source.toLocalFile(); });
+    QObject::connect(m_player, &QMediaPlayer::errorOccurred, this,
+        [this](QMediaPlayer::Error error, const QString& error_string) {
+            qWarning() << "Media player error:" << static_cast<int>(error) << error_string;
+            if (m_player_bar != nullptr) {
+                m_player_bar->set_playing(false);
+            }
+        });
+}
+
+void TopWindow::refresh_audio_output_device() {
+    const auto outputs = m_media_devices->audioOutputs();
+    const auto default_output = m_media_devices->defaultAudioOutput();
+
+    qInfo() << "Audio outputs found:" << outputs.size();
+    for (const auto& output : outputs) {
+        qInfo() << "  output:" << output.description()
+                << "default:" << output.isDefault();
+    }
+
+    auto selected_output = default_output;
+    if (selected_output.isNull() && !outputs.isEmpty()) {
+        selected_output = outputs.front();
+    }
+
+    if (selected_output.isNull()) {
+        qWarning() << "No audio output device detected. Check PipeWire/PulseAudio and system output.";
+        return;
+    }
+
+    if (m_audio_output->device().isNull() || m_audio_output->device() != selected_output) {
+        m_audio_output->setDevice(selected_output);
+    }
+
+    const auto format = selected_output.preferredFormat();
+    qInfo() << "Using audio output:" << selected_output.description()
+            << "sampleRate:" << format.sampleRate()
+            << "channels:" << format.channelCount()
+            << "sampleFormat:" << static_cast<int>(format.sampleFormat())
+            << "volume:" << m_audio_output->volume()
+            << "muted:" << m_audio_output->isMuted();
 }
 
 /**
@@ -505,11 +619,17 @@ void TopWindow::play_song_at_index(int index) {
         return;
     }
 
+    const auto output_device = m_audio_output->device();
+    qInfo() << "Play requested:" << song.title
+            << "file:" << song.file_path
+            << "output:" << (output_device.isNull()
+                    ? QStringLiteral("<none>")
+                    : output_device.description())
+            << "volume:" << m_audio_output->volume()
+            << "muted:" << m_audio_output->isMuted();
+
     m_player->setSource(QUrl::fromLocalFile(song.file_path));
     m_player->play();
-    if (m_player_bar != nullptr) {
-        m_player_bar->set_playing(true);
-    }
 }
 
 void TopWindow::play_next_track() {
@@ -646,6 +766,12 @@ auto TopWindow::resize_edges_for_pos(const QPoint& pos) const -> Qt::Edges {
     }
     return edges;
 }
+
+/* void TopWindow::paintEvent(QPaintEvent* event) {
+    QPainter painter { this };
+    painter.fillRect(rect(), m_theme_manager.color_scheme().background);
+    QMainWindow::paintEvent(event);
+} */
 
 void TopWindow::update_window_cursor(const QPoint& pos) {
     const auto edges = resize_edges_for_pos(pos);

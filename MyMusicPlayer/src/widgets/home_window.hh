@@ -7,6 +7,7 @@
 #include "creeper-qt/widget/cards/filled-card.hh"
 #include <QMediaPlayer>
 #include <QAudioOutput>
+#include <QMediaDevices>
 
 #include <creeper-qt/layout/mixer.hh>
 #include <creeper-qt/widget/main-window.hh>
@@ -40,6 +41,7 @@ public:
     TopWindow();
 
 protected:
+   // void paintEvent(QPaintEvent* event) override;
     void mousePressEvent(QMouseEvent* event) override;
     void mouseMoveEvent(QMouseEvent* event) override;
     void leaveEvent(QEvent* event) override;
@@ -57,6 +59,7 @@ private:
 
     QMediaPlayer *m_player;
     QAudioOutput *m_audio_output;
+    QMediaDevices *m_media_devices;
 
     NavHost *m_pages;
     std::unordered_map<const QWidget*, DisplayWidget> m_widget_map; 
@@ -73,6 +76,7 @@ private:
 
     void switch_page(int index);
     void setup_player();
+    void refresh_audio_output_device();
     auto playback_queue_for_source(const QString& source_id) const
         -> std::vector<mymusic::model::SongInfo>;
     void enqueue_source(const QString& source_id);
